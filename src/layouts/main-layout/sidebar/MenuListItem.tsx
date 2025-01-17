@@ -8,7 +8,7 @@ interface MenuListProps {
 const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
   const { icon: Icon } = menuItem;
   const itemIcon = Icon ? (
-    <Icon sx={{ width: { xs: 20, xl: 24 }, height: { xs: 20, xl: 24 } }} />
+    <Icon sx={{ width: { xs: 20, xl: 24 }, height: { xs: 20, xl: 24 }, color: '#B1B1B1' }} />
   ) : null;
   const location = useLocation();
 
@@ -17,24 +17,7 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
     menuItem.title === menuLinks.find((item) => item.link === location.pathname)?.title;
 
   return (
-    <ListItem
-      key={menuItem.id}
-      sx={{
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          bgcolor: isActive ? '#1677FF' : 'transparent',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          width: 6,
-          borderTopRightRadius: 10,
-          borderBottomRightRadius: 10,
-          transition: 'background-color 0.5s ease',
-        },
-      }}
-    >
+    <ListItem key={menuItem.id}>
       <Link
         href={menuItem.link}
         onClick={onDrawerClose}
@@ -43,6 +26,7 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
           px: 1,
           display: 'flex',
           alignItems: 'center',
+          margin: '-5px -23px',
           gap: 2,
           flex: 1,
           borderRadius: 2,
@@ -61,7 +45,6 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
         <ListItemIcon
           sx={{
             minWidth: 'auto',
-
             color: isActive ? '#ffffff' : menuItem.available ? 'neutral.dark' : 'action.disabled',
           }}
         >
@@ -71,7 +54,7 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
           primary={
             <Typography
               sx={{
-                fontSize: { xs: 'body1.fontSize', xl: 'h6.fontSize' },
+                fontSize: { xs: 'body1.fontSize', xl: 'h3.fontSize' },
                 fontWeight: 500,
                 textTransform: 'capitalize',
               }}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
 import {
   Drawer,
   List,
@@ -7,6 +8,7 @@ import {
   ListItem,
   ListItemText,
   Collapse,
+  Link,
 } from '@mui/material';
 import Logo from 'components/common/Logo';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
@@ -42,7 +44,7 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
         },
         display: { xs: 'none', md: 'flex' },
         flexDirection: 'column',
-        gap: 2,
+        // gap: 2,
         py: 3.5,
         overflow: 'hidden',
         width: {
@@ -52,14 +54,16 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
         },
       }}
     >
-      <Toolbar sx={{ gap: 1, minHeight: 100, cursor: 'pointer', backgroundColor: '#D36128' }}>
+      <Toolbar sx={{ minHeight: 100, cursor: 'pointer', backgroundColor: '#D36128' }}>
         <Logo />
       </Toolbar>
 
-      <SimpleBar style={{ height: 'calc(100vh - 100px)', backgroundColor: '#001427' }}>
-        <List sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <SimpleBar
+        style={{ height: 'calc(100vh - 100px)', backgroundColor: '#001427', padding: '0px 8px' }}
+      >
+        <List sx={{ display: 'flex', flexDirection: 'column' }}>
           {menuLinks.map((menu) => (
-            <div key={menu.id}>
+            <List key={menu.id}>
               <ListItem
                 onClick={() => menu.subMenu && handleMoremenu(menu.id)}
                 sx={{
@@ -89,20 +93,46 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
                 <Collapse in={expandMoremenu === menu.id} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {menu.subMenu.map((submenuItem) => (
-                      <ListItem
-                        key={submenuItem.id}
-                        sx={{ display: 'flex', gap: 2, py: 2, color: '#B1B1B1' }}
-                      >
-                        {submenuItem.icon && (
-                          <ListItemIcon sx={{ pl: 5 }}>{<submenuItem.icon />}</ListItemIcon>
-                        )}
-                        <ListItemText primary={submenuItem.title} />
-                      </ListItem>
+                      <Link href={submenuItem.link} key={submenuItem.id}>
+                        <ListItem
+                          key={submenuItem.id}
+                          sx={{
+                            display: 'flex',
+                            gap: 1,
+                            py: 1,
+                            color: '#B1B1B1',
+                            '&:hover, &:focus': {
+                              backgroundColor: '#1677FF',
+                              '& .MuiSvgIcon-root': {
+                                color: '#B1B1B1',
+                              },
+                            },
+                          }}
+                        >
+                          {submenuItem.icon && (
+                            <ListItemIcon
+                              sx={{
+                                pl: 3,
+                                color: '#B1B1B1',
+                                '&:hover, &:focus': {
+                                  color: '#B1B1B1',
+                                  '& .MuiSvgIcon-root': {
+                                    color: '#B1B1B1',
+                                  },
+                                },
+                              }}
+                            >
+                              {<submenuItem.icon />}
+                            </ListItemIcon>
+                          )}
+                          <ListItemText primary={submenuItem.title} />
+                        </ListItem>
+                      </Link>
                     ))}
                   </List>
                 </Collapse>
               )}
-            </div>
+            </List>
           ))}
         </List>
       </SimpleBar>

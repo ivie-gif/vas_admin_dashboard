@@ -52,7 +52,7 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
           </Typography>
           <Stack direction="row" gap={1} sx={{ display: { xs: 'flex', md: 'none' } }}>
             <Link href="/" sx={{ display: 'flex', p: 0.5 }}>
-              <Image src="/home/bankdash.svg" alt="Logo" sx={{ width: 25 }} />
+              <Image src="/dashboard/broadbased.png" alt="Logo" sx={{ width: 40 }} />
             </Link>
             <IconButton onClick={onDrawerToggle} sx={{ display: { md: 'none' } }}>
               <IconifyIcon icon="mingcute:menu-line" color="#D36128" width={25} />

@@ -75,7 +75,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
         flexBasis: 'calc(25% - 16px)',
       }}
     >
-      <Stack sx={{ gap: 4, px: { xs: 2.5, md: 3 }, pt: 3, pb: { xs: 2, md: 3 } }}>
+      <Stack sx={{ gap: 4, px: { xs: 2.5, md: 3 }, pt: 3, pb: { xs: 2, md: 3 }}}>
         <Stack
           flexWrap="wrap"
           direction="row"

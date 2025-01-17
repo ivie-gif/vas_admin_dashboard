@@ -18,7 +18,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/home',
+  base: '/dashboard',
 
   //   preview: {
   //     port: 5000,

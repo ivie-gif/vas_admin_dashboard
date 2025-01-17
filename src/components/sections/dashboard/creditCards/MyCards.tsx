@@ -108,7 +108,7 @@ const MyCards = () => {
           See All
         </Link>
       </Stack> */}
-      <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto', marginTop: '35px' }}>
+      <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto', marginTop: '35px',  }} >
         <Stack
           flexWrap="wrap"
           direction="row"

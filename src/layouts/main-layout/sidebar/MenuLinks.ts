@@ -6,6 +6,7 @@ import SignInIcon from 'components/icons/menu-icons/SignInIcon';
 import TransferIcon from 'components/icons/menu-icons/TransferIcon';
 import UserIcon from 'components/icons/menu-icons/UserIcon';
 import { CustomExpandMoreIcon } from 'components/icons/menu-icons/ExpandIcon';
+import paths from 'routes/path';
 
 export enum linkEnum {
   Dashboard = 'dashboard',
@@ -35,7 +36,7 @@ export enum linkEnum {
 export interface MenuLinkType {
   id: number;
   title: string;
-  link: string;
+  link?: string;
   icon?: (props: SvgIconProps) => JSX.Element;
   available: boolean;
   subMenu?: Omit<MenuLinkType, 'submenu'>[];
@@ -52,21 +53,21 @@ export const menuLinks: MenuLinkType[] = [
   {
     id: 2,
     title: linkEnum.FundDeposit,
-    link: '#!',
+    link: 'FundDeposit',
     icon: TransferIcon,
     available: false,
   },
   {
     id: 3,
     title: linkEnum.UsersWallets,
-    link: '#!',
+    link: 'UsersWallets',
     icon: UserIcon,
     available: false,
   },
   {
     id: 4,
     title: linkEnum.WalletReports,
-    link: '#!',
+    // link: 'WalletReports',
     icon: UserIcon,
     expandIcon: CustomExpandMoreIcon,
     available: false,
@@ -74,21 +75,21 @@ export const menuLinks: MenuLinkType[] = [
       {
         id: 11,
         title: linkEnum.WalletTransactions,
-        link: '#!',
+        link: paths.walletTransactions,
         icon: TransferIcon,
         available: false,
       },
       {
         id: 12,
         title: linkEnum.PaymentRequest,
-        link: '#!',
+        link: paths.paymentRequest,
         icon: InvestIcon,
         available: false,
       },
       {
         id: 13,
         title: linkEnum.AllWallets,
-        link: '#!',
+        link: paths.allWallets,
         icon: UserIcon,
         available: false,
       },
@@ -97,7 +98,7 @@ export const menuLinks: MenuLinkType[] = [
   {
     id: 5,
     title: linkEnum.SMS,
-    link: '#!',
+    // link: 'SMS',
     icon: InvestIcon,
     expandIcon: CustomExpandMoreIcon,
     available: false,
@@ -105,42 +106,42 @@ export const menuLinks: MenuLinkType[] = [
       {
         id: 14,
         title: linkEnum.SmsUsers,
-        link: '#!',
+        link: paths.smsUsers,
         icon: TransferIcon,
         available: false,
       },
       {
         id: 15,
         title: linkEnum.SmppAccounts,
-        link: '#!',
+        link: paths.smppAccounts,
         icon: InvestIcon,
         available: false,
       },
       {
         id: 16,
         title: linkEnum.SenderId,
-        link: '#!',
+        link: paths.senderId,
         icon: UserIcon,
         available: false,
       },
       {
         id: 17,
         title: linkEnum.SmsTransaction,
-        link: '#!',
+        link: paths.smsTransaction,
         icon: TransferIcon,
         available: false,
       },
       {
         id: 18,
         title: linkEnum.ScheduledSms,
-        link: '#!',
+        link: paths.scheduledSms,
         icon: InvestIcon,
         available: false,
       },
       {
         id: 19,
         title: linkEnum.ContactGroups,
-        link: '#!',
+        link: paths.contactGroups,
         icon: UserIcon,
         available: false,
       },

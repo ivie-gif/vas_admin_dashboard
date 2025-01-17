@@ -6,7 +6,20 @@ import paths, { rootPaths } from './path';
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
 const AuthLayout = lazy(() => import('layouts/auth-layout'));
+
 const Dashboard = lazy(() => import('pages/dashboard'));
+const FundDeposit = lazy(() => import('pages/fundDeposit'));
+const UsersWallets = lazy(() => import('pages/usersWallet'));
+const WalletTransactions = lazy(() => import('pages/walletReports/walletTransactions'));
+const PaymentRequest = lazy(() => import('pages/walletReports/walletTransactions'));
+const AllWallets = lazy(() => import('pages/walletReports/walletTransactions'));
+const SmsUsers = lazy(() => import('pages/walletReports/walletTransactions'));
+const SmppAccounts = lazy(() => import('pages/walletReports/walletTransactions'));
+const SenderId = lazy(() => import('pages/walletReports/walletTransactions'));
+const SmsTransaction = lazy(() => import('pages/walletReports/walletTransactions'));
+const ScheduledSms = lazy(() => import('pages/walletReports/walletTransactions'));
+const ContactGroups = lazy(() => import('pages/walletReports/walletTransactions'));
+
 const Spinner = lazy(() => import('components/loading/Splash'));
 const LoadingProgress = lazy(() => import('components/loading/LoadingProgress'));
 
@@ -47,8 +60,66 @@ export const routes = [
             path: paths.transactions,
             element: <Dashboard />,
           },
+          {
+            path: paths.fundDeposit,
+            element: <FundDeposit />,
+          },
+          {
+            path: paths.usersWallets,
+            element: <UsersWallets />,
+          },
+          {
+            path: paths.walletReports,
+            // element: <WalletReports />,
+            children: [
+              {
+                path: paths.walletTransactions,
+                element: <WalletTransactions />,
+              },
+              {
+                path: paths.paymentRequest,
+                element: <PaymentRequest />,
+              },
+              {
+                path: paths.allWallets,
+                element: <AllWallets />,
+              },
+            ],
+          },
+
+          {
+            path: paths.sms,
+            // element: <WalletReports />,
+            children: [
+              {
+                path: paths.smsUsers,
+                element: <SmsUsers />,
+              },
+              {
+                path: paths.smppAccounts,
+                element: <SmppAccounts />,
+              },
+              {
+                path: paths.senderId,
+                element: <SenderId />,
+              },
+              {
+                path: paths.smsTransaction,
+                element: <SmsTransaction />,
+              },
+              {
+                path: paths.scheduledSms,
+                element: <ScheduledSms />,
+              },
+              {
+                path: paths.contactGroups,
+                element: <ContactGroups />,
+              },
+            ],
+          },
         ],
       },
+
       {
         path: rootPaths.authRoot,
         element: <AuthLayout />,
@@ -80,6 +151,7 @@ export const routes = [
           },
         ],
       },
+
       {
         path: '*',
         element: <Navigate to={paths.notFound} replace />,
@@ -89,7 +161,7 @@ export const routes = [
 ];
 
 const router = createBrowserRouter(routes, {
-  basename: '/home',
+  basename: '/dashboard',
 });
 
 export default router;
