@@ -25,7 +25,7 @@ interface CardData {
 const cardData: CardData[] = [
   {
     id: 1,
-    theme: 'blue',
+    theme: 'white',
     data: {
       title: 'Total Active Users',
       cardNumber: 14,
@@ -34,7 +34,7 @@ const cardData: CardData[] = [
   },
   {
     id: 2,
-    theme: 'blue',
+    theme: 'white',
     data: {
       title: 'Total SMSes Sent',
       cardNumber: 10,
@@ -43,7 +43,7 @@ const cardData: CardData[] = [
   },
   {
     id: 3,
-    theme: 'blue',
+    theme: 'white',
     data: {
       title: 'Total Delivered SMSes',
       cardNumber: 15,
@@ -52,7 +52,7 @@ const cardData: CardData[] = [
   },
   {
     id: 4,
-    theme: 'blue',
+    theme: 'white',
     data: {
       title: 'Total Undeliv. SMSes',
       cardNumber: 13,
@@ -61,7 +61,7 @@ const cardData: CardData[] = [
   },
   {
     id: 5,
-    theme: 'blue',
+    theme: 'white',
     data: {
       title: 'Total Wallet Amount',
       cardNumber: 17,
@@ -70,7 +70,7 @@ const cardData: CardData[] = [
   },
   {
     id: 6,
-    theme: 'blue',
+    theme: 'white',
     data: {
       title: 'Total SenderID Regist.',
       cardNumber: 116,
@@ -108,7 +108,9 @@ const MyCards = () => {
           See All
         </Link>
       </Stack> */}
-      <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto', marginTop: '35px',  }} >
+      <SimpleBar
+        style={{ maxWidth: '100%', overflowX: 'auto', marginTop: '35px', padding: '15px' }}
+      >
         <Stack
           flexWrap="wrap"
           direction="row"

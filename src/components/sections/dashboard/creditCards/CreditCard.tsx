@@ -1,4 +1,4 @@
-import { Card, Palette, Stack, Typography, useTheme } from '@mui/material';
+import { Card, Palette, Stack, Typography, useTheme, Box } from '@mui/material';
 import { ReactElement } from 'react';
 import BankLogoAlt from 'assets/bank-logo-alt.svg';
 import BankLogo from 'assets/bank-logo.svg';
@@ -70,24 +70,30 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
         background: cardBg,
         color: textColor,
         border: 1,
+        boxShadow: '2px 2px 6px 0px rgba(12, 12, 13, 0.3)',
         borderColor: 'action.focus',
         width: 'calc(25% - 16px)',
         flexBasis: 'calc(25% - 16px)',
       }}
     >
-      <Stack sx={{ gap: 4, px: { xs: 2.5, md: 3 }, pt: 3, pb: { xs: 2, md: 3 }}}>
+      <Stack sx={{ gap: 4, px: { xs: 2.5, md: 3 }, pt: 3, pb: { xs: 2, md: 3 } }}>
         <Stack
           flexWrap="wrap"
           direction="row"
           sx={{ justifyContent: 'space-between', alignItems: 'center' }}
         >
           <div>
-            <Typography sx={{ fontSize: { xs: 'body2.fontSize', md: 'h6.fontSize' } }}>
+            <Typography
+              sx={{
+                fontSize: { xs: 'body2.fontSize', md: 'h5.fontSize' },
+                fontWeight: 'h1.fontWeight',
+              }}
+            >
               {/* {currencyFormat(Number(title))} */}
               {title}
             </Typography>
           </div>
-          <div>{cardData.icon}</div>
+          <Box sx={{ color: '#D36128' }}>{cardData.icon}</Box>
         </Stack>
       </Stack>
       <Stack
@@ -108,6 +114,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
         <Typography
           sx={{
             fontSize: { xs: 'body1.fontSize', md: 'h3.fontSize' },
+            fontWeight: 'h1.fontWeight',
           }}
         >
           {cardNumber}
