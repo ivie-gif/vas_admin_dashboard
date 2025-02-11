@@ -1,11 +1,10 @@
-// import MainLayout from 'layouts/main-layout';
 import { Fragment } from 'react/jsx-runtime';
 import DataTable from 'components/common/Datagrid';
 import { GridColDef } from '@mui/x-data-grid';
 import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
-const UsersWallets = () => {
+const AllWallets = () => {
   const location = useLocation();
 
   // Extract the route name from the pathname
@@ -189,11 +188,11 @@ const UsersWallets = () => {
       >
         {routeDisplayName}
       </Typography>
-      <Box pt={2}>
+      <Box sx={{ py: 2 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
   );
 };
 
-export default UsersWallets;
+export default AllWallets;

@@ -42,7 +42,7 @@ const transactions = [
 
 const RecentTransactions = () => {
   return (
-    <CardContainer title="Recent Transactions">
+    <CardContainer title="Recent Funds Deposits">
       <Card sx={{ p: { xs: 0.5, xl: 1 } }}>
         <List disablePadding sx={{ color: 'primary.main', '& > *:not(:last-child)': { mb: 2.5 } }}>
           {transactions.map(

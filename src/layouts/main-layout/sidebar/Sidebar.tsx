@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import {
   Drawer,
   List,
@@ -8,13 +7,12 @@ import {
   ListItem,
   ListItemText,
   Collapse,
-  Link,
+  Link as MuiLink,
 } from '@mui/material';
 import Logo from 'components/common/Logo';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
 import MenuListItem from 'layouts/main-layout/sidebar/MenuListItem';
 import SimpleBar from 'simplebar-react';
-import { CustomExpandMoreIcon, CustomExpandLessIcon } from 'components/icons/menu-icons/ExpandIcon';
 
 interface SidebarProps {
   drawerWidth: {
@@ -23,11 +21,12 @@ interface SidebarProps {
     sm: number;
   };
 }
-const Sidebar = ({ drawerWidth }: SidebarProps) => {
-  const [expandMoremenu, setExpandMoremenu] = useState<number | null>(null);
 
-  const handleMoremenu = (menuid: number) => {
-    setExpandMoremenu(expandMoremenu === menuid ? null : menuid);
+const Sidebar = ({ drawerWidth }: SidebarProps) => {
+  const [expandedMenuId, setExpandedMenuId] = useState<number | null>(null);
+
+  const handleMenuClick = (menuId: number) => {
+    setExpandedMenuId(expandedMenuId === menuId ? null : menuId);
   };
 
   return (
@@ -44,7 +43,6 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
         },
         display: { xs: 'none', md: 'flex' },
         flexDirection: 'column',
-        // gap: 2,
         py: 3.5,
         overflow: 'hidden',
         width: {
@@ -63,43 +61,24 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
       >
         <List sx={{ display: 'flex', flexDirection: 'column' }}>
           {menuLinks.map((menu) => (
-            <List key={menu.id}>
-              <ListItem
-                onClick={() => menu.subMenu && handleMoremenu(menu.id)}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: 1,
-                }}
-              >
-                <MenuListItem menuItem={menu} />
-                {/* <MenuListItem menuItem={menu} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                  {menu.icon && <ListItemIcon>{<menu.icon />}</ListItemIcon>}
-                  <ListItemText primary={menu.title} />
-                </MenuListItem> */}
-                {menu.subMenu && (
-                  <ListItemIcon>
-                    {expandMoremenu === menu.id ? (
-                      <CustomExpandLessIcon />
-                    ) : (
-                      <CustomExpandMoreIcon />
-                    )}
-                  </ListItemIcon>
-                )}
-              </ListItem>
+            <div key={menu.id}>
+              <MenuListItem
+                menuItem={menu}
+                isExpanded={expandedMenuId === menu.id}
+                onClick={() => menu.subMenu && handleMenuClick(menu.id)}
+              />
 
               {menu.subMenu && (
-                <Collapse in={expandMoremenu === menu.id} timeout="auto" unmountOnExit>
+                <Collapse in={expandedMenuId === menu.id} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {menu.subMenu.map((submenuItem) => (
-                      <Link href={submenuItem.link} key={submenuItem.id}>
+                      <MuiLink href={submenuItem.link} key={submenuItem.id} underline="none">
                         <ListItem
-                          key={submenuItem.id}
                           sx={{
                             display: 'flex',
                             gap: 1,
                             py: 1,
+                            pl: 4,
                             color: '#B1B1B1',
                             '&:hover, &:focus': {
                               backgroundColor: '#1677FF',
@@ -112,14 +91,8 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
                           {submenuItem.icon && (
                             <ListItemIcon
                               sx={{
-                                pl: 3,
+                                minWidth: 'auto',
                                 color: '#B1B1B1',
-                                '&:hover, &:focus': {
-                                  color: '#B1B1B1',
-                                  '& .MuiSvgIcon-root': {
-                                    color: '#B1B1B1',
-                                  },
-                                },
                               }}
                             >
                               {<submenuItem.icon />}
@@ -127,12 +100,12 @@ const Sidebar = ({ drawerWidth }: SidebarProps) => {
                           )}
                           <ListItemText primary={submenuItem.title} />
                         </ListItem>
-                      </Link>
+                      </MuiLink>
                     ))}
                   </List>
                 </Collapse>
               )}
-            </List>
+            </div>
           ))}
         </List>
       </SimpleBar>

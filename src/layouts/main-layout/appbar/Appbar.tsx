@@ -6,18 +6,11 @@ import ProfileDropdown from 'layouts/main-layout/appbar/ProfileDropdown';
 import SearchInput from 'layouts/main-layout/appbar/SearchInput';
 import SettingsDropdown from 'layouts/main-layout/appbar/SettingsDropdown';
 import { MouseEvent, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 interface NavbarProps {
   onDrawerToggle: () => void;
 }
 const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
   const [open, setOpen] = useState<null | HTMLElement>(null);
-
-  const location = useLocation();
-
-  // Extract the route name from the pathname
-  const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
-  const routeName = pathSegments.length > 0 ? pathSegments.pop() : 'Overview';
 
   const handleOpen = (event: MouseEvent<HTMLElement>) => {
     setOpen(event.currentTarget);
@@ -42,13 +35,13 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
               display: { xs: 'none', md: 'block' },
               fontSize: { sm: 'h2.fontSize', xl: 'h1.fontSize' },
               fontWeight: 600,
-              color: 'primary.darker',
+              color: '#D36128',
               flex: 1,
               textAlign: { xs: 'center', md: 'left' },
               textTransform: 'capitalize',
             }}
           >
-            {routeName}
+            {/* {routeName} */}
           </Typography>
           <Stack direction="row" gap={1} sx={{ display: { xs: 'flex', md: 'none' } }}>
             <Link href="/" sx={{ display: 'flex', p: 0.5 }}>

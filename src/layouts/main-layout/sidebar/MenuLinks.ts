@@ -5,7 +5,7 @@ import SettingsIcon from 'components/icons/menu-icons/SettingsIcon';
 import SignInIcon from 'components/icons/menu-icons/SignInIcon';
 import TransferIcon from 'components/icons/menu-icons/TransferIcon';
 import UserIcon from 'components/icons/menu-icons/UserIcon';
-import { CustomExpandMoreIcon } from 'components/icons/menu-icons/ExpandIcon';
+// import { CustomExpandMoreIcon } from 'components/icons/menu-icons/ExpandIcon';
 import paths from 'routes/path';
 
 export enum linkEnum {
@@ -14,7 +14,7 @@ export enum linkEnum {
   UsersWallets = 'Users Wallets',
   WalletReports = 'Reports',
   WalletTransactions = 'Wallet Trans.',
-  PaymentRequest = 'Payment Request',
+  PaymentRequests = 'Payment Request',
   AllWallets = 'All Wallets',
   SMS = 'SMS',
   SmsUsers = 'SMS Users',
@@ -40,7 +40,8 @@ export interface MenuLinkType {
   icon?: (props: SvgIconProps) => JSX.Element;
   available: boolean;
   subMenu?: Omit<MenuLinkType, 'submenu'>[];
-  expandIcon?: (props: SvgIconProps) => JSX.Element;
+  // expandIcon?: (props: SvgIconProps) => JSX.Element;
+  expandIcon?: boolean;
 }
 export const menuLinks: MenuLinkType[] = [
   {
@@ -69,7 +70,7 @@ export const menuLinks: MenuLinkType[] = [
     title: linkEnum.WalletReports,
     // link: 'WalletReports',
     icon: UserIcon,
-    expandIcon: CustomExpandMoreIcon,
+    expandIcon: true,
     available: false,
     subMenu: [
       {
@@ -81,8 +82,8 @@ export const menuLinks: MenuLinkType[] = [
       },
       {
         id: 12,
-        title: linkEnum.PaymentRequest,
-        link: paths.paymentRequest,
+        title: linkEnum.PaymentRequests,
+        link: paths.paymentRequests,
         icon: InvestIcon,
         available: false,
       },
@@ -100,7 +101,7 @@ export const menuLinks: MenuLinkType[] = [
     title: linkEnum.SMS,
     // link: 'SMS',
     icon: InvestIcon,
-    expandIcon: CustomExpandMoreIcon,
+    expandIcon: true,
     available: false,
     subMenu: [
       {

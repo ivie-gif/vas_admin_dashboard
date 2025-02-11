@@ -1,6 +1,7 @@
 // import { SvgIconProps } from '@mui/material';
 import { ReactElement } from 'react';
 import { Stack } from '@mui/material';
+import { SxProps, Theme } from '@mui/material';
 import CreditCard, { CreditCardData } from 'components/sections/dashboard/creditCards/CreditCard';
 import { Fragment } from 'react/jsx-runtime';
 import SimpleBar from 'simplebar-react';
@@ -21,6 +22,7 @@ interface CardData {
   data: CreditCardData;
   id: number;
   icon?: IconType;
+  sx?: SxProps<Theme>;
 }
 const cardData: CardData[] = [
   {
@@ -82,41 +84,13 @@ const cardData: CardData[] = [
 const MyCards = () => {
   return (
     <Fragment>
-      {/* <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        sx={{ pt: 3, pb: 2.5 }}
-      >
-        <Typography
-          sx={{
-            fontSize: { xs: 'body2.fontSize', md: 'h6.fontSize', xl: 'h3.fontSize' },
-            fontWeight: 600,
-          }}
-        >
-          My Cards
-        </Typography>
-        <Link
-          variant="h5"
-          href="#!"
-          sx={{
-            fontSize: { xs: 'caption.fontSize', md: 'body1.fontSize', xl: 'h5.fontSize' },
-            fontWeight: 600,
-            pr: 1,
-          }}
-        >
-          See All
-        </Link>
-      </Stack> */}
-      <SimpleBar
-        style={{ maxWidth: '100%', overflowX: 'auto', marginTop: '35px', padding: '15px' }}
-      >
+      <SimpleBar style={{ maxWidth: '100%', overflowX: 'auto', marginTop: '7px' }}>
         <Stack
           flexWrap="wrap"
           direction="row"
           justifyContent="space-between"
           gap={4}
-          sx={{ minWidth: 800 }}
+          sx={{ minWidth: 800, padding: '10px' }}
         >
           {cardData.map((card) => (
             <CreditCard key={card.id} theme={card.theme} cardData={card.data} />

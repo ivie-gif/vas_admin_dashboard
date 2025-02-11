@@ -1,40 +1,40 @@
 import { Link, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import { menuLinks, MenuLinkType } from 'layouts/main-layout/sidebar/MenuLinks';
+import { CustomExpandMoreIcon, CustomExpandLessIcon } from 'components/icons/menu-icons/ExpandIcon';
 import { useLocation } from 'react-router-dom';
+
 interface MenuListProps {
   menuItem: MenuLinkType;
   onDrawerClose?: () => void;
+  isExpanded?: boolean;
+  onClick?: () => void;
 }
-const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
-  const { icon: Icon } = menuItem;
-  const itemIcon = Icon ? (
-    <Icon sx={{ width: { xs: 20, xl: 24 }, height: { xs: 20, xl: 24 }, color: '#B1B1B1' }} />
-  ) : null;
+
+const MenuListItem = ({ menuItem, onDrawerClose, isExpanded, onClick }: MenuListProps) => {
   const location = useLocation();
 
-  // check if list item is active
   const isActive =
     menuItem.title === menuLinks.find((item) => item.link === location.pathname)?.title;
 
   return (
-    <ListItem key={menuItem.id}>
+    <ListItem disablePadding onClick={onClick}>
       <Link
         href={menuItem.link}
         onClick={onDrawerClose}
         sx={{
-          py: 1.5,
-          px: 1,
+          width: '100%',
           display: 'flex',
           alignItems: 'center',
-          margin: '-5px -23px',
-          gap: 2,
-          flex: 1,
+          py: 1,
+          my: 0.5,
+          px: 1,
           borderRadius: 2,
           color: isActive ? '#ffffff' : menuItem.available ? '#B1B1B1' : '#B1B1B1',
-          transition: 'color 0.35s ease',
+          textDecoration: 'none',
+          transition: 'background-color 0.35s ease, color 0.35s ease',
           '&:hover, &:focus': {
             backgroundColor: '#1677FF',
-            boxShadow: 'shadows[10]',
+            boxShadow: '0px 2px 8px rgba(0,0,0,0.15)',
             color: !menuItem.available ? 'action.disabled' : '#FFF2FF',
             '& .MuiSvgIcon-root': {
               color: !menuItem.available ? 'action.disabled' : '#FFF2FF',
@@ -42,14 +42,23 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
           },
         }}
       >
-        <ListItemIcon
-          sx={{
-            minWidth: 'auto',
-            color: isActive ? '#ffffff' : menuItem.available ? 'neutral.dark' : 'action.disabled',
-          }}
-        >
-          {itemIcon}
-        </ListItemIcon>
+        {menuItem.icon && (
+          <ListItemIcon
+            sx={{
+              minWidth: 'auto',
+              mr: 1,
+              color: isActive
+                ? '#ffffff'
+                : menuItem.available
+                  ? 'action.disabled'
+                  : 'action.disabled',
+              transition: 'color 0.35s ease',
+            }}
+          >
+            <menuItem.icon sx={{ width: 24, height: 24 }} />
+          </ListItemIcon>
+        )}
+
         <ListItemText
           primary={
             <Typography
@@ -63,6 +72,18 @@ const MenuListItem = ({ menuItem, onDrawerClose }: MenuListProps) => {
             </Typography>
           }
         />
+
+        {menuItem.subMenu && menuItem.expandIcon && (
+          <ListItemIcon
+            sx={{
+              minWidth: 'auto',
+              ml: 'auto',
+              transition: 'color 0.35s ease',
+            }}
+          >
+            {isExpanded ? <CustomExpandLessIcon /> : <CustomExpandMoreIcon />}
+          </ListItemIcon>
+        )}
       </Link>
     </ListItem>
   );

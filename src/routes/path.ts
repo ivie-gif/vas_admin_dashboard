@@ -27,7 +27,7 @@ const paths = {
   usersWallets: `${rootPaths.pagesRoot}usersWallets`,
   walletTransactions: `${rootPaths.pagesRoot}walletReports/walletTransactions`,
   walletReports: `${rootPaths.pagesRoot}walletReports`,
-  paymentRequest: `${rootPaths.pagesRoot}walletReports/paymentRequest`,
+  paymentRequests: `${rootPaths.pagesRoot}walletReports/paymentRequests`,
   allWallets: `${rootPaths.pagesRoot}walletReports/allWallets`,
   // for sms
   sms: `${rootPaths.pagesRoot}sms`,

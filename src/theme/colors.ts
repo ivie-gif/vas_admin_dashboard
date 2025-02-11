@@ -1,5 +1,6 @@
 export const grey = {
-  50: '#F5F7FA',
+  50: '#F5F5F5',
+  // 50: '#FFFFFF',
   100: '#F2F4F7',
   200: '#E6EFF5',
   300: '#DFEAF2',
@@ -12,7 +13,7 @@ export const grey = {
 };
 
 export const blue = {
-  50: '#DFE5EE', //
+  50: '#1677FF', //
   100: '#E7EDFF', //
   200: '#8BA3CB', //
   300: '#718EBF', //
@@ -23,7 +24,7 @@ export const blue = {
   900: '#343c6a', //
 };
 export const magneta = {
-  50: '#F3F3F5',
+  50: '#1677FF',
   100: '#EBEEF2',
   200: '#ecd8f3',
   300: '#f282f8',

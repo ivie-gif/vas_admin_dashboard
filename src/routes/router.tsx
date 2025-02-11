@@ -11,8 +11,8 @@ const Dashboard = lazy(() => import('pages/dashboard'));
 const FundDeposit = lazy(() => import('pages/fundDeposit'));
 const UsersWallets = lazy(() => import('pages/usersWallet'));
 const WalletTransactions = lazy(() => import('pages/walletReports/walletTransactions'));
-const PaymentRequest = lazy(() => import('pages/walletReports/walletTransactions'));
-const AllWallets = lazy(() => import('pages/walletReports/walletTransactions'));
+const PaymentRequests = lazy(() => import('pages/walletReports/paymentRequests'));
+const AllWallets = lazy(() => import('pages/walletReports/allWallets'));
 const SmsUsers = lazy(() => import('pages/walletReports/walletTransactions'));
 const SmppAccounts = lazy(() => import('pages/walletReports/walletTransactions'));
 const SenderId = lazy(() => import('pages/walletReports/walletTransactions'));
@@ -77,8 +77,8 @@ export const routes = [
                 element: <WalletTransactions />,
               },
               {
-                path: paths.paymentRequest,
-                element: <PaymentRequest />,
+                path: paths.paymentRequests,
+                element: <PaymentRequests />,
               },
               {
                 path: paths.allWallets,

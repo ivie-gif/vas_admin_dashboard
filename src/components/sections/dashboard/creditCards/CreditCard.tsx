@@ -1,11 +1,10 @@
-import { Card, Palette, Stack, Typography, useTheme, Box } from '@mui/material';
 import { ReactElement } from 'react';
+import { Card, Palette, Stack, Typography, useTheme, Box } from '@mui/material';
+import { SxProps, Theme } from '@mui/material';
 import BankLogoAlt from 'assets/bank-logo-alt.svg';
 import BankLogo from 'assets/bank-logo.svg';
 import ChipCardBlack from 'assets/chip_black.png';
 import ChipCardWhite from 'assets/chip_white.png';
-// import Image from 'components/base/Image';
-// import { currencyFormat } from 'helpers/utils';
 
 type IconType = ReactElement;
 
@@ -16,6 +15,7 @@ export interface CreditCardData {
   cardNumber?: number;
   theme?: 'blue' | 'white';
   icon?: IconType;
+  sx?: SxProps<Theme>;
 }
 
 interface CreditCardProps {
@@ -69,14 +69,17 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
         overflow: 'hidden',
         background: cardBg,
         color: textColor,
-        border: 1,
-        boxShadow: '2px 2px 6px 0px rgba(12, 12, 13, 0.3)',
+        borderRadius: '10px',
         borderColor: 'action.focus',
         width: 'calc(25% - 16px)',
         flexBasis: 'calc(25% - 16px)',
+        boxShadow: '5px 5px 8px rgba(0,0,0,0.15)',
+        '&:hover': {
+          boxShadow: 'none',
+        },
       }}
     >
-      <Stack sx={{ gap: 4, px: { xs: 2.5, md: 3 }, pt: 3, pb: { xs: 2, md: 3 } }}>
+      <Stack sx={{ gap: 2, px: { xs: 2.5, md: 3 }, pt: 5, pb: { xs: 2, md: 1 } }}>
         <Stack
           flexWrap="wrap"
           direction="row"
@@ -87,40 +90,30 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
               sx={{
                 fontSize: { xs: 'body2.fontSize', md: 'h5.fontSize' },
                 fontWeight: 'h1.fontWeight',
+                color: '#001427',
               }}
             >
-              {/* {currencyFormat(Number(title))} */}
               {title}
             </Typography>
           </div>
-          <Box sx={{ color: '#D36128' }}>{cardData.icon}</Box>
+          <Box sx={{ color: '#001427' }}>{cardData.icon}</Box>
         </Stack>
       </Stack>
-      <Stack
-        direction="row"
-        gap={2}
+      <Typography
         sx={{
           background: cardGradient,
-          justifyContent: 'space-between',
-          alignItems: 'center',
           mt: 1.25,
           px: 3,
-          pt: { xs: 2, md: 3 },
-          pb: { xs: 2, md: 4 },
+          pt: { xs: 2, md: 4 },
+          pb: { xs: 2, md: 3 },
           borderTop: borderStyle,
           borderColor: 'action.focus',
+          color: '#001427',
+          fontSize: { xs: 'h6.fontSize', md: 'h6.fontSize' },
         }}
       >
-        <Typography
-          sx={{
-            fontSize: { xs: 'body1.fontSize', md: 'h3.fontSize' },
-            fontWeight: 'h1.fontWeight',
-          }}
-        >
-          {cardNumber}
-        </Typography>
-        {/* <Image src={bankLogo} alt="bank-logo" sx={{ width: 50 }} /> */}
-      </Stack>
+        {cardNumber}
+      </Typography>
     </Card>
   );
 };

@@ -49,7 +49,7 @@ const palette: PaletteOptions = {
   },
   primary: {
     lighter: blue[200],
-    light: blue[300],
+    light: '#1677FF',
     main: blue[500],
     dark: blue[800],
     darker: blue[900],
