@@ -27,7 +27,6 @@ const Dashboard = () => {
           fontWeight: 600,
           color: '#D36128',
           pt: 5,
-          pb: 2,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
           textTransform: 'capitalize',

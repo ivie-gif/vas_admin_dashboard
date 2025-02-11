@@ -53,10 +53,6 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
           </Stack>
 
           <Stack direction="row" sx={{ alignItems: 'center', gap: { xs: 2.5, xl: 3.75 } }}>
-            <Box sx={{ display: { xs: 'none', md: 'block', maxWidth: 260 } }}>
-              <SearchInput fullWidth={false} size={'medium'} />
-            </Box>
-
             <Stack direction="row" sx={{ gap: { xs: 2.5, xl: 3.75 } }}>
               <SettingsDropdown />
               <IconButton sx={{ bgcolor: 'background.paper' }} onClick={handleOpen}>
