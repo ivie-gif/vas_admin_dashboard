@@ -1,6 +1,7 @@
 // CollapsedSidebar.tsx
 import { Drawer, Toolbar, List, ListItem, ListItemIcon, Typography } from '@mui/material';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
+import Tooltip from '@mui/material/Tooltip';
 
 interface SidebarProps {
   drawerWidth: {
@@ -50,11 +51,13 @@ const CollapsedSidebar = ({ drawerWidth, open }: SidebarProps) => {
       </Toolbar>
       <List>
         {menuLinks.map((menu) => (
-          <ListItem key={menu.id} sx={{ gap: 1, py: 1.5 }}>
+            <ListItem key={menu.id} sx={{ gap: 1, py: 1.5 }}>
             {menu.icon && (
+              <Tooltip key={menu.id} title={menu.title} placement="right" sx={{backgroundColor: '#001427'}}>
               <ListItemIcon sx={{ minWidth: 'auto', justifyContent: 'center', color: '#B1B1B1' }}>
                 <menu.icon sx={{ width: 24, height: 24 }} />
               </ListItemIcon>
+              </Tooltip>
             )}
           </ListItem>
         ))}
