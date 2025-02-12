@@ -5,7 +5,6 @@ import SettingsIcon from 'components/icons/menu-icons/SettingsIcon';
 import SignInIcon from 'components/icons/menu-icons/SignInIcon';
 import TransferIcon from 'components/icons/menu-icons/TransferIcon';
 import UserIcon from 'components/icons/menu-icons/UserIcon';
-// import { CustomExpandMoreIcon } from 'components/icons/menu-icons/ExpandIcon';
 import paths from 'routes/path';
 
 export enum linkEnum {

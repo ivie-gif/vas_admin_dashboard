@@ -1,5 +1,5 @@
 import { Link, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import { menuLinks, MenuLinkType } from 'layouts/main-layout/sidebar/MenuLinks';
+import { MenuLinkType } from 'layouts/main-layout/sidebar/MenuLinks';
 import { CustomExpandMoreIcon, CustomExpandLessIcon } from 'components/icons/menu-icons/ExpandIcon';
 import { useLocation } from 'react-router-dom';
 
@@ -8,13 +8,20 @@ interface MenuListProps {
   onDrawerClose?: () => void;
   isExpanded?: boolean;
   onClick?: () => void;
+  open?: boolean;
 }
 
-const MenuListItem = ({ menuItem, onDrawerClose, isExpanded, onClick }: MenuListProps) => {
+const MenuListItem = ({
+  menuItem,
+  onDrawerClose,
+  isExpanded,
+  onClick,
+  open = true,
+}: MenuListProps) => {
   const location = useLocation();
 
   const isActive =
-    menuItem.title === menuLinks.find((item) => item.link === location.pathname)?.title;
+    menuItem.title === (menuItem.link && menuItem.link === location.pathname ? menuItem.title : '');
 
   return (
     <ListItem disablePadding onClick={onClick}>
@@ -73,7 +80,7 @@ const MenuListItem = ({ menuItem, onDrawerClose, isExpanded, onClick }: MenuList
           }
         />
 
-        {menuItem.subMenu && menuItem.expandIcon && (
+        {open && menuItem.subMenu && menuItem.expandIcon && (
           <ListItemIcon
             sx={{
               minWidth: 'auto',
