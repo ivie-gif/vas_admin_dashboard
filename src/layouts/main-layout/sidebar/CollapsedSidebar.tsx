@@ -1,5 +1,5 @@
 // CollapsedSidebar.tsx
-import { Drawer, Toolbar, List, ListItem, ListItemIcon } from '@mui/material';
+import { Drawer, Toolbar, List, ListItem, ListItemIcon, Typography } from '@mui/material';
 import { menuLinks } from 'layouts/main-layout/sidebar/MenuLinks';
 
 interface SidebarProps {
@@ -32,6 +32,7 @@ const CollapsedSidebar = ({ drawerWidth, open }: SidebarProps) => {
           },
           transition: 'width 0.3s ease',
           overflowY: 'auto',
+          backgroundColor: '#001427',
         },
       }}
     >
@@ -43,15 +44,15 @@ const CollapsedSidebar = ({ drawerWidth, open }: SidebarProps) => {
           justifyContent: 'center',
         }}
       >
-        {'BBC'}
+        <Typography variant="h2" sx={{ color: '#001427', fontWeight: 'bold' }}>
+          {'BBC'}
+        </Typography>
       </Toolbar>
       <List>
         {menuLinks.map((menu) => (
-          <ListItem key={menu.id} button>
+          <ListItem key={menu.id} sx={{ gap: 1, py: 1.5 }}>
             {menu.icon && (
-              <ListItemIcon
-                sx={{ minWidth: 'auto', justifyContent: 'center' }}
-              >
+              <ListItemIcon sx={{ minWidth: 'auto', justifyContent: 'center', color: '#B1B1B1' }}>
                 <menu.icon sx={{ width: 24, height: 24 }} />
               </ListItemIcon>
             )}

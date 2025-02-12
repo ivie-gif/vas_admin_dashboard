@@ -72,7 +72,6 @@
 
 // export default MainLayout;
 
-
 import { Box, Stack } from '@mui/material';
 import MainNavbar from 'layouts/main-layout/appbar/Appbar';
 import Footer from 'layouts/main-layout/footer/Footer';
