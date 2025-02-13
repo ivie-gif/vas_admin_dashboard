@@ -8,7 +8,7 @@ import UserIcon from 'components/icons/menu-icons/UserIcon';
 import paths from 'routes/path';
 
 export enum linkEnum {
-  Dashboard = 'dashboard',
+  Dashboard = 'Dashboard',
   FundDeposit = 'Fund Deposit',
   UsersWallets = 'Users Wallets',
   WalletReports = 'Reports',
@@ -147,27 +147,6 @@ export const menuLinks: MenuLinkType[] = [
       },
     ],
   },
-  // {
-  //   id: 5,
-  //   title: linkEnum.Credit,
-  //   link: '#!',
-  //   icon: CreditCardIcon,
-  //   available: false,
-  // },
-  // {
-  //   id: 6,
-  //   title: linkEnum.Loans,
-  //   link: '#!',
-  //   icon: LoanIcon,
-  //   available: false,
-  // },
-  // {
-  //   id: 7,
-  //   title: linkEnum.Services,
-  //   link: '#!',
-  //   icon: ServiceIcon,
-  //   available: false,
-  // },
   {
     id: 8,
     title: linkEnum.Setting,

@@ -79,6 +79,11 @@ const typography: TypographyOptions = {
     fontSize: pxToRem(16), // 16px
     lineHeight: 1.1875, // 19px
   },
+  body3: {
+    fontWeight: 300,
+    fontSize: pxToRem(15), // 16px
+    lineHeight: 1.1875, // 19px
+  },
   button: {
     fontWeight: 500,
     fontSize: pxToRem(13), // 13px

@@ -50,17 +50,61 @@ const CollapsedSidebar = ({ drawerWidth, open }: SidebarProps) => {
         </Typography>
       </Toolbar>
       <List>
-        {menuLinks.map((menu) => (
-            <ListItem key={menu.id} sx={{ gap: 1, py: 1.5 }}>
-            {menu.icon && (
-              <Tooltip key={menu.id} title={menu.title} placement="right" sx={{backgroundColor: '#001427'}}>
-              <ListItemIcon sx={{ minWidth: 'auto', justifyContent: 'center', color: '#B1B1B1' }}>
-                <menu.icon sx={{ width: 24, height: 24 }} />
-              </ListItemIcon>
-              </Tooltip>
-            )}
-          </ListItem>
-        ))}
+        {menuLinks.map((menu) => {
+          // Compute tooltip text: if submenu exists, show main title and a list of submenu titles
+          const tooltipTitle = menu.subMenu ? (
+            <div>
+              {menu.subMenu.map((sub) => (
+                <div
+                  key={sub.id}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '14px 12px',
+                  }}
+                >
+                  {sub.icon && (
+                    <span style={{ marginRight: 8, display: 'inline-flex' }}>
+                      <sub.icon style={{ width: 15, height: 15 }} />
+                    </span>
+                  )}
+                  <Typography variant="body3">{sub.title}</Typography>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div
+              key={menu.id}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '10px 12px',
+              }}
+            >
+              {menu.icon && <menu.icon style={{ width: 15, height: 15 }} />}
+              <Typography variant="body3" sx={{ padding: '5px 12px' }}>
+                {menu.title}
+              </Typography>
+            </div>
+          );
+          return (
+            <Tooltip key={menu.id} title={tooltipTitle} placement="right">
+              <ListItem sx={{ gap: 1, py: 1.5 }}>
+                {menu.icon && (
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 'auto',
+                      justifyContent: 'center',
+                      color: '#B1B1B1',
+                    }}
+                  >
+                    <menu.icon sx={{ width: 24, height: 24 }} />
+                  </ListItemIcon>
+                )}
+              </ListItem>
+            </Tooltip>
+          );
+        })}
       </List>
     </Drawer>
   );
