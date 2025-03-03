@@ -13,12 +13,12 @@ const UsersWallets = lazy(() => import('pages/usersWallet'));
 const WalletTransactions = lazy(() => import('pages/walletReports/walletTransactions'));
 const PaymentRequests = lazy(() => import('pages/walletReports/paymentRequests'));
 const AllWallets = lazy(() => import('pages/walletReports/allWallets'));
-const SmsUsers = lazy(() => import('pages/walletReports/walletTransactions'));
-const SmppAccounts = lazy(() => import('pages/walletReports/walletTransactions'));
-const SenderId = lazy(() => import('pages/walletReports/walletTransactions'));
-const SmsTransaction = lazy(() => import('pages/walletReports/walletTransactions'));
-const ScheduledSms = lazy(() => import('pages/walletReports/walletTransactions'));
-const ContactGroups = lazy(() => import('pages/walletReports/walletTransactions'));
+const SmsUsers = lazy(() => import('pages/sms/smsUsers'));
+const SmppAccounts = lazy(() => import('pages/sms/smppAccounts'));
+const SenderId = lazy(() => import('pages/sms/senderId'));
+const SmsTransaction = lazy(() => import('pages/sms/smsTransaction'));
+const ScheduledSms = lazy(() => import('pages/sms/scheduledSms'));
+const ContactGroups = lazy(() => import('pages/sms/contactGroups'));
 
 const Spinner = lazy(() => import('components/loading/Splash'));
 const LoadingProgress = lazy(() => import('components/loading/LoadingProgress'));

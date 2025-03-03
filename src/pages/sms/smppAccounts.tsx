@@ -1,14 +1,11 @@
 import { Fragment } from 'react/jsx-runtime';
 import DataTable from 'components/common/Datagrid';
 import { GridColDef } from '@mui/x-data-grid';
-import { Box, Typography, Button, Grid } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import { useBreakpoints } from 'providers/useBreakpoints';
 
-const WalletTransactions = () => {
+const SMPPAccounts = () => {
   const location = useLocation();
-  const { up } = useBreakpoints();
-  const upSM = up('sm');
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
@@ -191,47 +188,10 @@ const WalletTransactions = () => {
       >
         {routeDisplayName}
       </Typography>
-      <Grid item xs={6} md={3} gap={2}>
-        <Button
-          variant="contained"
-          type="submit"
-          disabled
-          size={upSM ? 'medium' : 'medium'}
-          sx={{
-            marginRight: '7px',
-            padding: '0px -50px',
-            color: '#ffffff',
-            backgroundColor: '#1677FF',
-            '&: hover': {
-              backgroundColor: '#4096FF',
-            },
-          }}
-          // onClick={handleModalOpen}
-        >
-          Approve / Disapprove WHD
-        </Button>
-        <Button
-          variant="contained"
-          type="submit"
-          size={upSM ? 'medium' : 'medium'}
-          sx={{
-            padding: '0px -50px',
-            color: '#ffffff',
-            backgroundColor: '#1677FF',
-            '&: hover': {
-              backgroundColor: '#4096FF',
-            },
-          }}
-          // onClick={handleModalOpen}
-        >
-          Approve / Disapprove WAT
-        </Button>
-      </Grid>
       <Box sx={{ py: 2 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
   );
 };
-
-export default WalletTransactions;
+export default SMPPAccounts;
