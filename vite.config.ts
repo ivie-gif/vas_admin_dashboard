@@ -18,8 +18,8 @@ export default defineConfig({
       },
     }),
   ],
-  // base: '/',
-  base: '/dashboard',
+  base: '/',
+  // base: '/dashboard',
 
   //   preview: {
   //     port: 5000,
