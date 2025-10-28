@@ -57,7 +57,7 @@ const Sidebar = ({ drawerWidth, open }: SidebarProps) => {
     >
       <Toolbar
         sx={{
-          minHeight: 100,
+          minHeight: 70,
           cursor: 'pointer',
           backgroundColor: '#D36128',
           justifyContent: 'center',

@@ -36,7 +36,7 @@ export const red = {
   500: '#FE5C73',
 };
 export const orange = {
-  50: '##FFFDFC',
+  50: '#FFFDFC',
   100: '#FEEFE1', //
   200: '#fedab8',
   300: '#fdaf66',
