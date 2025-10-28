@@ -33,12 +33,6 @@ const Sidebar = ({ open }: SidebarProps) => {
         flexShrink: 0,
         minHeight: 100,
         width: '13.2%',
-        // Outer Drawer width (prevents the AppBar from going behind the sidebar)
-        // width: {
-        //   xl: open ? drawerWidth?.lg : '30px',
-        //   lg: open ? drawerWidth?.md : '30px',
-        //   sm: open ? drawerWidth?.sm : '30px',
-        // },
         display: { xs: 'none', md: 'flex' },
         flexDirection: 'column',
         py: 3.5,

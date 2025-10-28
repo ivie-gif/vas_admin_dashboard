@@ -47,18 +47,15 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         sx={{
           display: 'flex',
           flexGrow: 1,
-          width: 1,
-          maxWidth: {
-            xs: 1,
-            md: `calc(100% - ${sidebarOpen ? drawerWidth.md : 30}px)`,
-            lg: `calc(100% - ${sidebarOpen ? drawerWidth.lg : 30}px)`,
-          },
+          width: 100,
           justifyContent: 'space-between',
         }}
       >
         <MainNavbar onDrawerToggle={handleDrawerToggle} />
         <Stack
           sx={{
+            // mx: -6,
+            // width: '104%',
             backgroundColor: { xs: 'common.white', md: 'background.paper' },
             px: { xs: 3.15, md: 5, xl: 7 },
             flex: 1,
