@@ -22,11 +22,16 @@
     "default-passive-events": "^2.0.0",
     "echarts": "^5.5.0",
     "echarts-for-react": "^3.0.2",
+    "formik": "^2.4.6",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.7.0",
+    "react-data-table-component-extensions": "^1.6.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "simplebar-react": "^3.2.6",
-    "swiper": "^11.1.4"
+    "styled-components": "^6.1.17",
+    "swiper": "^11.1.4",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@iconify/react": "^5.0.1",

@@ -33,10 +33,11 @@ const paths = {
   sms: `${rootPaths.pagesRoot}sms`,
   smsUsers: `${rootPaths.pagesRoot}sms/smsUsers`,
   smppAccounts: `${rootPaths.pagesRoot}sms/smppAccounts`,
-  senderId: `${rootPaths.pagesRoot}sms/senderId`,
   smsTransaction: `${rootPaths.pagesRoot}sms/smsTransaction`,
   scheduledSms: `${rootPaths.pagesRoot}sms/scheduledSms`,
   contactGroups: `${rootPaths.pagesRoot}sms/contactGroups`,
+  // for sender Id
+  senderId: `${rootPaths.pagesRoot}senderId`,
 };
 
 export default paths;

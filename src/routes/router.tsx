@@ -15,7 +15,7 @@ const PaymentRequests = lazy(() => import('pages/walletReports/paymentRequests')
 const AllWallets = lazy(() => import('pages/walletReports/allWallets'));
 const SmsUsers = lazy(() => import('pages/sms/smsUsers'));
 const SmppAccounts = lazy(() => import('pages/sms/smppAccounts'));
-const SenderId = lazy(() => import('pages/sms/senderId'));
+const SenderId = lazy(() => import('pages/senderId'));
 const SmsTransaction = lazy(() => import('pages/sms/smsTransaction'));
 const ScheduledSms = lazy(() => import('pages/sms/scheduledSms'));
 const ContactGroups = lazy(() => import('pages/sms/contactGroups'));
@@ -100,10 +100,6 @@ export const routes = [
                 element: <SmppAccounts />,
               },
               {
-                path: paths.senderId,
-                element: <SenderId />,
-              },
-              {
                 path: paths.smsTransaction,
                 element: <SmsTransaction />,
               },
@@ -116,6 +112,10 @@ export const routes = [
                 element: <ContactGroups />,
               },
             ],
+          },
+          {
+            path: paths.senderId,
+            element: <SenderId />,
           },
         ],
       },

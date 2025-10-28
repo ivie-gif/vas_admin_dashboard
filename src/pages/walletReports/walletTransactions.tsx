@@ -4,6 +4,7 @@ import { GridColDef } from '@mui/x-data-grid';
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { useBreakpoints } from 'providers/useBreakpoints';
+// import DataTable from "react-data-table-component";
 
 const WalletTransactions = () => {
   const location = useLocation();
@@ -195,7 +196,6 @@ const WalletTransactions = () => {
         <Button
           variant="contained"
           type="submit"
-          disabled
           size={upSM ? 'medium' : 'medium'}
           sx={{
             marginRight: '7px',

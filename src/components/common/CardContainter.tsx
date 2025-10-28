@@ -1,15 +1,17 @@
 import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
 import { ReactNode } from 'react';
+import { SxProps, Theme } from '@mui/material';
 
 interface CardContainerProps {
-  title: string;
+  title?: string;
   children: ReactNode;
+  sx?: SxProps<Theme>;
 }
 
-const CardContainer = ({ title, children }: CardContainerProps) => {
+const CardContainer = ({ children, title }: CardContainerProps) => {
   return (
     <Stack sx={{ overflow: 'auto', height: 1, justifyContent: 'space-between' }}>
-      <Box sx={{ mb: { xs: 1.5, sm: 2.5 }, mt: { xs: 1, sm: 3 } }}>
+      <Box sx={{ mb: { xs: 1.5, sm: 2.5 } }}>
         <Typography
           sx={{
             fontSize: {
@@ -31,7 +33,6 @@ const CardContainer = ({ title, children }: CardContainerProps) => {
             justifyContent: 'space-between',
             height: 1,
             width: 1,
-            pb: 0,
           }}
         >
           {children}

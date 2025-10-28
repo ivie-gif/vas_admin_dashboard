@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 import { Grid, Button, Typography, Box } from '@mui/material';
 import { Fragment } from 'react/jsx-runtime';
 import { useBreakpoints } from 'providers/useBreakpoints';
@@ -11,6 +13,9 @@ import { useLocation } from 'react-router-dom';
 
 const FundDeposit = () => {
   const location = useLocation();
+  const { up } = useBreakpoints();
+  const upSM = up('sm');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
@@ -18,7 +23,11 @@ const FundDeposit = () => {
   // Insert a space before each uppercase letter that follows a lowercase letter
   const routeDisplayName = routeName.replace(/([a-z])([A-Z])/g, '$1 $2');
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const FundDepositSchema = Yup.object({
+    amount: Yup.number().required('Amount is required'),
+    userId: Yup.string().required('User ID is required'),
+    reference: Yup.string().required('Transaction Reference is required'),
+  });
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -27,9 +36,6 @@ const FundDeposit = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
-  const { up } = useBreakpoints();
-  const upSM = up('sm');
 
   const columns: GridColDef<(typeof rows)[number]>[] = [
     {
@@ -209,7 +215,15 @@ const FundDeposit = () => {
         </Button>
       </Grid>
 
-      <form>
+      <Formik
+        initialValues={{
+          amount: '',
+          userId: '',
+          reference: '',
+        }}
+        validationSchema={FundDepositSchema}
+        onSubmit={() => console.log('Clicked')}
+      >
         <CustomModal open={isModalOpen} onClose={handleCloseModal} title="Deposit Funds">
           <CustomInputField
             placeholder="Amount"
@@ -245,7 +259,7 @@ const FundDeposit = () => {
             Submit
           </CustomButton>
         </CustomModal>
-      </form>
+      </Formik>
       <Box sx={{ py: 2 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>

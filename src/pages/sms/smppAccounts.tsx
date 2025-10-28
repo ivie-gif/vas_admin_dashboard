@@ -1,17 +1,34 @@
+import { useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 import DataTable from 'components/common/Datagrid';
 import { GridColDef } from '@mui/x-data-grid';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Grid, Button } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import { useBreakpoints } from 'providers/useBreakpoints';
+import CustomModal from 'components/common/Modal';
+import CustomInputField from 'components/common/Input';
+import CustomButton from 'components/common/Button';
 
 const SMPPAccounts = () => {
   const location = useLocation();
+  const { up } = useBreakpoints();
+  const upSM = up('sm');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
   const routeName = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'Overview';
   // Insert a space before each uppercase letter that follows a lowercase letter
   const routeDisplayName = routeName.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  const SmppAccountsSchema = Yup.object().shape({
+    userId: Yup.string().required('User ID is required'),
+    accountUserId: Yup.string().required('Account User ID is required'),
+    accountUserPassword: Yup.string().required('Account User Password is required'),
+    smsRoute: Yup.string().required('SMS Route is required'),
+  });
 
   const columns: GridColDef<(typeof rows)[number]>[] = [
     {
@@ -172,6 +189,14 @@ const SMPPAccounts = () => {
     },
   ];
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <Fragment>
       <Typography
@@ -188,6 +213,79 @@ const SMPPAccounts = () => {
       >
         {routeDisplayName}
       </Typography>
+      <Grid item xs={6} md={3}>
+        <Button
+          onClick={handleOpenModal}
+          variant="contained"
+          type="submit"
+          size={upSM ? 'medium' : 'medium'}
+          sx={{
+            padding: '0px -50px',
+            color: '#ffffff',
+            backgroundColor: '#1677FF',
+            '&: hover': {
+              backgroundColor: '#4096FF',
+            },
+          }}
+        >
+          Create New Account
+        </Button>
+      </Grid>
+
+      <Formik
+        initialValues={{
+          userId: '',
+          accountUserId: '',
+          accountUserPassword: '',
+          smsRoute: '',
+        }}
+        validationSchema={SmppAccountsSchema}
+        onSubmit={() => console.log('clicked')}
+      >
+        <CustomModal open={isModalOpen} onClose={handleCloseModal} title="Create New SMPP Account ">
+          <CustomInputField
+            placeholder="User Id"
+            variant="outlined"
+            fullWidth
+            type="number"
+            sx={{ mb: 2 }}
+          />
+          <CustomInputField
+            placeholder="Account User Id"
+            variant="outlined"
+            fullWidth
+            type="text"
+            sx={{ mb: 2 }}
+          />
+          <CustomInputField
+            placeholder="Account User Password"
+            variant="outlined"
+            fullWidth
+            type="password"
+            sx={{ mb: 2 }}
+          />
+          <CustomInputField
+            placeholder="Sms Route"
+            variant="outlined"
+            fullWidth
+            type="text"
+            sx={{ mb: 2 }}
+          />
+          <CustomButton
+            variant="contained"
+            position="center"
+            sx={{
+              color: (theme) => theme.palette.common.white,
+              backgroundColor: (theme) => theme.palette.primary.light,
+              pointer: 'cursor',
+              mt: 3,
+            }}
+          >
+            Submit
+          </CustomButton>
+        </CustomModal>
+      </Formik>
+
       <Box sx={{ py: 2 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
