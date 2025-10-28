@@ -39,15 +39,15 @@ const Dashboard = () => {
         <Grid item xs={12} xl={8} zIndex={1}>
           <MyCards />
         </Grid>
-        <Grid item xs={12} xl={4} zIndex={1}>
+        <Grid item xs={12} xl={4} zIndex={1} mt={2}>
           <RecentTransactions />
         </Grid>
 
         {/* ------------- Chart section ---------------- */}
-        <Grid item xs={12} lg={8} zIndex={1}>
+        <Grid item xs={12} lg={8} zIndex={1} mt={2}>
           <WeeklyActivity />
         </Grid>
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} lg={4} mt={2}>
           <ExpenseStatistics />
         </Grid>
 
