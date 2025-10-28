@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Fragment>
       {/* <Image src="/home/bankdash.svg" alt="Logo" sx={{ width: 36 }} /> */}
-      <Typography variant="h2" sx={{ color: '#001427', fontWeight: 'bold' }}>
+      <Typography variant="h2" sx={{ color: '#001427', fontWeight: 'bold', textAlign: 'left' }}>
         Broadbased
       </Typography>
     </Fragment>

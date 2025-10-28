@@ -15,15 +15,10 @@ import MenuListItem from 'layouts/main-layout/sidebar/MenuListItem';
 import SimpleBar from 'simplebar-react';
 
 interface SidebarProps {
-  drawerWidth: {
-    lg: number;
-    md: number;
-    sm: number;
-  };
   open: boolean;
 }
 
-const Sidebar = ({ drawerWidth, open }: SidebarProps) => {
+const Sidebar = ({ open }: SidebarProps) => {
   const [expandedMenuId, setExpandedMenuId] = useState<number | null>(null);
 
   const handleMenuClick = (menuId: number) => {
@@ -36,28 +31,27 @@ const Sidebar = ({ drawerWidth, open }: SidebarProps) => {
       open={open}
       sx={{
         flexShrink: 0,
+        minHeight: 100,
+        width: '13.2%',
         // Outer Drawer width (prevents the AppBar from going behind the sidebar)
-        width: {
-          xl: open ? drawerWidth.lg : '30px',
-          lg: open ? drawerWidth.md : '30px',
-          sm: open ? drawerWidth.sm : '30px',
-        },
+        // width: {
+        //   xl: open ? drawerWidth?.lg : '30px',
+        //   lg: open ? drawerWidth?.md : '30px',
+        //   sm: open ? drawerWidth?.sm : '30px',
+        // },
         display: { xs: 'none', md: 'flex' },
         flexDirection: 'column',
         py: 3.5,
         [`& .MuiDrawer-paper`]: {
-          width: {
-            xl: drawerWidth.lg,
-            lg: drawerWidth.md,
-            sm: drawerWidth.sm,
-          },
-          overflowY: 'auto',
+          width: '13.2%',
+          overflowY: 'hidden',
         },
       }}
     >
       <Toolbar
         sx={{
           minHeight: 65,
+          width: '100%',
           cursor: 'pointer',
           backgroundColor: '#D36128',
           justifyContent: 'center',
@@ -68,9 +62,10 @@ const Sidebar = ({ drawerWidth, open }: SidebarProps) => {
 
       <SimpleBar
         style={{
-          height: 'calc(100vh - 100px)',
+          height: 'calc(100vh - 65px)',
           backgroundColor: '#001427',
           padding: '0px 8px',
+          width: '100%',
         }}
       >
         <List sx={{ display: 'flex', flexDirection: 'column' }}>

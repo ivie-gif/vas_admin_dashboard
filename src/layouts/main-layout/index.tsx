@@ -32,7 +32,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <Box sx={{ display: 'flex' }}>
       {sidebarOpen ? (
-        <Sidebar drawerWidth={drawerWidth} open={sidebarOpen} />
+        <Sidebar open={sidebarOpen} />
       ) : (
         <CollapsedSidebar drawerWidth={drawerWidth} open={sidebarOpen} />
       )}
