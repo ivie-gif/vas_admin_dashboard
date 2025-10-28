@@ -78,7 +78,7 @@ const CollapsedSidebar = ({ drawerWidth, open }: SidebarProps) => {
                           <sub.icon style={{ width: 15, height: 15 }} />
                         </span>
                       )}
-                      <Typography variant="body3">{sub.title}</Typography>
+                      <Typography variant="body2">{sub.title}</Typography>
                     </div>
                   </RouterLink>
                 ))}
@@ -97,7 +97,7 @@ const CollapsedSidebar = ({ drawerWidth, open }: SidebarProps) => {
                   }}
                 >
                   {menu.icon && <menu.icon style={{ width: 15, height: 15 }} />}
-                  <Typography variant="body3" sx={{ padding: '5px 12px' }}>
+                  <Typography variant="body2" sx={{ padding: '5px 12px' }}>
                     {menu.title}
                   </Typography>
                 </div>
