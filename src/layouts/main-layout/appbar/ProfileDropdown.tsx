@@ -36,7 +36,7 @@ const ProfileDropdown = () => {
   };
   return (
     <Fragment>
-      <IconButton sx={{ p: 0, position: 'relative' }} onClick={handleOpenDropdown}>
+      <IconButton sx={{ position: 'relative' }} onClick={handleOpenDropdown}>
         <Avatar
           alt="Avatar"
           src={ProfileImage}

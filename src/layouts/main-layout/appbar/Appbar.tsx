@@ -32,23 +32,22 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ bgcolor: 'common.white', minHeight: 70 }}>
+    <AppBar position="sticky" sx={{ bgcolor: 'common.white', minHeight: 65, py: 0 }}>
       <Toolbar
         sx={{
           justifyContent: 'space-between',
           flexWrap: 'wrap',
           gap: { xs: 0, lg: 2 },
+          alignItems: 'center',
         }}
       >
         <Box
           sx={{
             display: { xs: 'none', md: 'block' },
             fontSize: { sm: 'h2.fontSize', xl: 'h1.fontSize' },
-            fontWeight: 600,
-            color: '#D36128',
+            color: '#111827',
             flex: 1,
             textAlign: { xs: 'center', md: 'left' },
-            textTransform: 'capitalize',
           }}
         >
           {sidebarOpen ? (
