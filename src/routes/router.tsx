@@ -160,8 +160,10 @@ export const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes, {
-  basename: '/dashboard',
-});
+// const router = createBrowserRouter(routes, {
+//   basename: '/dashboard',
+// });
+
+const router = createBrowserRouter(routes);
 
 export default router;
