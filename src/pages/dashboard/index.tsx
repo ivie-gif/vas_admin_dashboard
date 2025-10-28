@@ -1,12 +1,12 @@
 import { Fragment } from 'react/jsx-runtime';
 import { Grid, Typography } from '@mui/material';
 import WeeklyActivity from 'components/sections/dashboard/activity/WeeklyActivity';
-import BalanceHistory from 'components/sections/dashboard/balance/BalanceHistory';
+// import BalanceHistory from 'components/sections/dashboard/balance/BalanceHistory';
 import MyCards from 'components/sections/dashboard/creditCards/MyCards';
 import ExpenseStatistics from 'components/sections/dashboard/expense/ExpenseStatistics';
-import InvoiceOverviewTable from 'components/sections/dashboard/invoice/InvoiceOverviewTable';
+// import InvoiceOverviewTable from 'components/sections/dashboard/invoice/InvoiceOverviewTable';
 import RecentTransactions from 'components/sections/dashboard/transactions/RecentTransaction';
-import QuickTransfer from 'components/sections/dashboard/transfer/QuickTransfer';
+// import QuickTransfer from 'components/sections/dashboard/transfer/QuickTransfer';
 import { useLocation } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -52,17 +52,17 @@ const Dashboard = () => {
         </Grid>
 
         {/* ------------- Slider section ---------------- */}
-        <Grid item xs={12} lg={6} xxl={4} zIndex={1}>
+        {/* <Grid item xs={12} lg={6} xxl={4} zIndex={1}>
           <QuickTransfer />
-        </Grid>
-        <Grid item xs={12} lg={6} xxl={8} zIndex={1}>
+        </Grid> */}
+        {/* <Grid item xs={12} lg={6} xxl={8} zIndex={1}>
           <BalanceHistory />
-        </Grid>
+        </Grid> */}
 
         {/* ------------- Data-Grid section ---------------- */}
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <InvoiceOverviewTable />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Fragment>
   );
