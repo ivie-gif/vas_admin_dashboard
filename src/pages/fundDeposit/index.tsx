@@ -185,10 +185,10 @@ const FundDeposit = () => {
         sx={{
           display: { xs: 'block', md: 'block' },
           fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
-          color: '#D36128',
+          fontWeight: 'bold',
+          color: '#212529',
           pt: 5,
-          pb: 2,
+          pb: 1,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
           textTransform: 'capitalize',
@@ -202,12 +202,13 @@ const FundDeposit = () => {
           type="submit"
           size={upSM ? 'medium' : 'medium'}
           sx={{
-            padding: '0px -50px',
             color: '#ffffff',
-            backgroundColor: '#1677FF',
+            borderRadius: '7px',
+            backgroundColor: '#1677ff',
             '&: hover': {
               backgroundColor: '#4096FF',
             },
+            fontSize: '14px',
           }}
           onClick={handleModalOpen}
         >
@@ -260,7 +261,7 @@ const FundDeposit = () => {
           </CustomButton>
         </CustomModal>
       </Formik>
-      <Box sx={{ py: 2 }}>
+      <Box sx={{ py: 2, mt: -1 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
