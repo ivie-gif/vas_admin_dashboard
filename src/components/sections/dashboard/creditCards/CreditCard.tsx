@@ -60,7 +60,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
   const { palette } = useTheme();
   const { cardBg, textColor, cardGradient, borderStyle } = getThemeStyles(theme, palette);
 
-  const { title, cardNumber } = cardData;
+  const { title, cardNumber, cardHolder } = cardData;
 
   return (
     <Card
@@ -79,7 +79,7 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
         },
       }}
     >
-      <Stack sx={{ gap: 2, px: { xs: 2.5, md: 3 }, pt: 5, pb: { xs: 2, md: 1 } }}>
+      <Stack sx={{ gap: 2, px: { xs: 2.5, md: 3 }, pt: 4, pb: { xs: 2, md: 1 } }}>
         <Stack
           flexWrap="wrap"
           direction="row"
@@ -88,15 +88,15 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
           <div>
             <Typography
               sx={{
-                fontSize: { xs: 'body2.fontSize', md: 'h5.fontSize' },
-                fontWeight: 'h1.fontWeight',
-                color: '#001427',
+                fontWeight: 'bold',
+                color: '#212529',
+                fontSize: '20px',
               }}
             >
               {title}
             </Typography>
           </div>
-          <Box sx={{ color: '#001427' }}>{cardData.icon}</Box>
+          <Box sx={{ color: '#D36128' }}>{cardData.icon}</Box>
         </Stack>
       </Stack>
       <Typography
@@ -104,15 +104,14 @@ const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
           background: cardGradient,
           mt: 1.25,
           px: 3,
-          pt: { xs: 2, md: 4 },
-          pb: { xs: 2, md: 3 },
-          borderTop: borderStyle,
-          borderColor: 'action.focus',
+          pt: 2,
+          pb: { xs: 2, md: 10 },
           color: '#001427',
-          fontSize: { xs: 'h6.fontSize', md: 'h6.fontSize' },
+          fontWeight: 'bold',
+          fontSize: '18px',
         }}
       >
-        {cardNumber}
+        {cardNumber} {cardHolder}
       </Typography>
     </Card>
   );
