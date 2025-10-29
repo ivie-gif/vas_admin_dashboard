@@ -17,14 +17,20 @@ const UsersWallets = () => {
   const columns: GridColDef<(typeof rows)[number]>[] = [
     {
       field: 'reference',
-      headerName: 'Reference',
-      width: 160,
+      headerName: 'Id',
+      width: 200,
+      editable: true,
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Created At',
+      width: 200,
       editable: true,
     },
     {
       field: 'amount',
       headerName: 'Amount',
-      width: 160,
+      width: 100,
       editable: true,
     },
     {
@@ -37,36 +43,25 @@ const UsersWallets = () => {
     {
       field: 'purpose',
       headerName: 'Purpose',
-      type: 'number',
       width: 160,
       editable: true,
     },
     {
       field: 'narration',
       headerName: 'Narration',
-      type: 'number',
       width: 160,
       editable: true,
     },
     {
       field: 'balanceAfter',
-      headerName: 'Balance After',
-      type: 'number',
-      width: 160,
+      headerName: 'Balance Aft.',
+      width: 100,
       editable: true,
     },
     {
       field: 'balanceBefore',
-      headerName: 'Balance Before',
-      type: 'number',
-      width: 160,
-      editable: true,
-    },
-    {
-      field: 'createdAt',
-      headerName: 'Created At',
-      type: 'number',
-      width: 160,
+      headerName: 'Balance Bef.',
+      width: 100,
       editable: true,
     },
   ];
@@ -179,8 +174,8 @@ const UsersWallets = () => {
         sx={{
           display: { xs: 'block', md: 'block' },
           fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
-          color: '#D36128',
+          fontWeight: 'bold',
+          color: '#212529',
           pt: 5,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
