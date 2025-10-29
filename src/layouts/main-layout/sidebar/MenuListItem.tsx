@@ -54,6 +54,7 @@ const MenuListItem = ({
             sx={{
               minWidth: 'auto',
               mr: 1,
+              fontSize: 23,
               color: isActive
                 ? '#ffffff'
                 : menuItem.available
@@ -62,7 +63,7 @@ const MenuListItem = ({
               transition: 'color 0.35s ease',
             }}
           >
-            <menuItem.icon sx={{ width: 24, height: 24 }} />
+            <menuItem.icon />
           </ListItemIcon>
         )}
 

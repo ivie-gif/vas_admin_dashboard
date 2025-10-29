@@ -82,6 +82,7 @@ const Sidebar = ({ open }: SidebarProps) => {
                             display: 'flex',
                             gap: 1,
                             py: 1,
+                            fontSize: '14px',
                             pl: open ? 4 : 1,
                             color: '#B1B1B1',
                             '&:hover, &:focus': {
