@@ -36,20 +36,21 @@ const Dashboard = () => {
       </Typography>
       <Grid container spacing={{ xs: 2.5, sm: 3 }} mb={3}>
         {/* ------------- Card section ---------------- */}
-        <Grid item xs={12} xl={8} zIndex={1}>
+        <Grid item xs={12} xl={12} md={12} >
           <MyCards />
         </Grid>
-        <Grid item xs={12} xl={4} zIndex={1} mt={2}>
+        <Grid item xs={12} xl={12} md={12} mt={2}>
           <RecentTransactions />
         </Grid>
 
         {/* ------------- Chart section ---------------- */}
-        <Grid item xs={12} lg={8} zIndex={1} mt={2}>
+        <Grid item xs={12} lg={12} md={12} mt={2}>
           <WeeklyActivity />
         </Grid>
-        <Grid item xs={12} lg={4} mt={2}>
+        
+        {/* <Grid item xs={12} lg={4} mt={2}>
           <ExpenseStatistics />
-        </Grid>
+        </Grid> */}
 
         {/* ------------- Slider section ---------------- */}
         {/* <Grid item xs={12} lg={6} xxl={4} zIndex={1}>
