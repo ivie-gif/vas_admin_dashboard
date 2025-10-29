@@ -43,11 +43,11 @@ const MainNavbar = ({ onDrawerToggle }: NavbarProps) => {
       >
         <Box
           sx={{
-            display: { xs: 'none', md: 'block' },
+            display: { xs: 'none', md: 'block', lg: 'block' },
             fontSize: { sm: 'h2.fontSize', xl: 'h1.fontSize' },
             color: '#111827',
             flex: 1,
-            textAlign: { xs: 'center', md: 'left' },
+            textAlign: { xs: 'center', md: 'left', lg: 'left' },
           }}
         >
           {sidebarOpen ? (

@@ -36,7 +36,7 @@ const MenuListItem = ({
           my: 0.5,
           px: 2.5,
           borderRadius: 2,
-          fontSize: 23,
+          // fontSize: 23,
           color: isActive ? '#ffffff' : menuItem.available ? '#B1B1B1' : '#B1B1B1',
           textDecoration: 'none',
           transition: 'background-color 0.35s ease, color 0.35s ease',
@@ -55,7 +55,7 @@ const MenuListItem = ({
             sx={{
               minWidth: 'auto',
               mr: 1,
-              fontSize: 23,
+              fontSize: { xs: 'body1.fontSize', xl: '20px', md: '23px' },
               color: isActive
                 ? '#ffffff'
                 : menuItem.available
@@ -72,7 +72,7 @@ const MenuListItem = ({
           primary={
             <Typography
               sx={{
-                fontSize: { xs: 'body1.fontSize', xl: 'h3.fontSize' },
+                fontSize: { xs: 'body1.fontSize', xl: '17px' },
                 fontWeight: 500,
                 textTransform: 'capitalize',
               }}
