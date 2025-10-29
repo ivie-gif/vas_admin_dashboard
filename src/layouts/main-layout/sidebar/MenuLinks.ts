@@ -1,12 +1,4 @@
-// import { SvgIconProps } from '@mui/material';
-// import HomeIcon from 'components/icons/menu-icons/HomeIcon';
-// import InvestIcon from 'components/icons/menu-icons/InvestIcon';
-// import SettingsIcon from 'components/icons/menu-icons/SettingsIcon';
-// import SignInIcon from 'components/icons/menu-icons/SignInIcon';
-// import TransferIcon from 'components/icons/menu-icons/TransferIcon';
-// import UserIcon from 'components/icons/menu-icons/UserIcon';
 import paths from 'routes/path';
-
 import { AiOutlineDashboard } from 'react-icons/ai';
 import { BiWalletAlt } from 'react-icons/bi';
 import { BsWalletFill } from 'react-icons/bs';

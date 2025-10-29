@@ -98,6 +98,7 @@ const Sidebar = ({ open }: SidebarProps) => {
                               sx={{
                                 minWidth: 'auto',
                                 color: '#B1B1B1',
+                                fontSize: 17,
                               }}
                             >
                               <submenuItem.icon />
