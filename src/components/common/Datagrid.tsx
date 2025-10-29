@@ -37,6 +37,23 @@ const DataTable = <T extends object>({
         pageSizeOptions={[pageSize]}
         checkboxSelection={checkboxSelection}
         disableRowSelectionOnClick={disableRowSelectionOnClick}
+        sx={{
+          '& .MuiDataGrid-columnHeader': {
+            color: '#212529',
+            fontWeight: 'bold',
+            fontSize: '14px',
+            textAlign: 'left',
+          },
+          '& .MuiDataGrid-columnSeparator': {
+            color: 'red',
+          },
+          '& .MuiDataGrid-cell': {
+            fontSize: '14px',
+            textAlign: 'left',
+            width: '10px',
+          },
+          ...sx,
+        }}
       />
     </Box>
   );

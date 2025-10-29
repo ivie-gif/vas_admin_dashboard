@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Divider } from '@mui/material';
-import { theme } from 'theme/theme';
+// import { theme } from 'theme/theme';
 
 const modalStyle = {
   position: 'absolute' as const,
@@ -39,6 +39,12 @@ const CustomModal: React.FC<ReusableModalProps> = ({
       onClose={onClose}
       aria-labelledby="reusable-modal-title"
       aria-describedby="reusable-modal-description"
+      sx={{
+        '& .MuiBox-root.css-1bz8m9d': {
+          bgcolor: 'background.paper',
+          border: 'none',
+        },
+      }}
     >
       <Box sx={modalStyle}>
         <Typography
@@ -49,7 +55,7 @@ const CustomModal: React.FC<ReusableModalProps> = ({
         >
           {title}
         </Typography>
-        <Divider sx={{ border: `1px solid ${theme.palette.neutral.main}`, mb: 3 }} />
+        <Divider sx={{ mb: 3 }} />
         <Typography id="reusable-modal-description" sx={{ mt: 2 }}>
           {description}
         </Typography>
