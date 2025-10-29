@@ -51,7 +51,7 @@ const ProfileDropdown = () => {
               },
             },
           }}
-          sx={{ width: { xs: 40, md: 45, xl: 60 }, height: { xs: 40, md: 45, xl: 60 } }}
+          sx={{ width: { xs: 40, md: 40, xl: 40 }, height: { xs: 40, md: 40, xl: 40 } }}
         />
       </IconButton>
       {/* Profile Menu Dropdown*/}
@@ -75,23 +75,13 @@ const ProfileDropdown = () => {
             User Profile
           </Typography>
           <Stack direction="row" py={2.5} spacing={1.5} alignItems="center">
-            <Avatar src={ProfileImage} alt="Profile Image" sx={{ width: 65, height: 65 }} />
+            <Avatar src={ProfileImage} alt="Profile Image" sx={{ width: 40, height: 40 }} />
             <Box>
               <Typography variant="subtitle2" color="text.primary" fontWeight={600}>
-                Charlene Reed
+                Emmanuel Ojo
               </Typography>
               <Typography variant="caption" color="textSecondary">
-                Designer
-              </Typography>
-              <Typography
-                variant="subtitle2"
-                color="textSecondary"
-                display="flex"
-                alignItems="center"
-                gap={0.5}
-              >
-                <IconifyIcon icon="majesticons:mail-line" />
-                info@dashbank.com
+                emmanueltop-ojo@broadbased.net
               </Typography>
             </Box>
           </Stack>
