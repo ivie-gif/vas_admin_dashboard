@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
-  const routeName = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'Overview';
+  const routeName = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'Dashboard';
   // Insert a space before each uppercase letter that follows a lowercase letter
   const routeDisplayName = routeName.replace(/([a-z])([A-Z])/g, '$1 $2');
 
@@ -23,9 +23,9 @@ const Dashboard = () => {
       <Typography
         sx={{
           display: { xs: 'block', md: 'block' },
-          fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
-          color: '#D36128',
+          fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize', md: '20px' },
+          fontWeight: 'bold',
+          color: '#212529',
           pt: 5,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
