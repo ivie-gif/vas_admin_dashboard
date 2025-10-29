@@ -16,10 +16,11 @@ const CardContainer = ({ children, title }: CardContainerProps) => {
           sx={{
             fontSize: {
               xs: 'body2.fontSize',
-              md: 'h6.fontSize',
-              xl: 'h3.fontSize',
+              md: '20px',
+              xl: '20px',
             },
-            fontWeight: 600,
+            fontWeight: 'bold',
+            color: '#212529',
           }}
         >
           {title}

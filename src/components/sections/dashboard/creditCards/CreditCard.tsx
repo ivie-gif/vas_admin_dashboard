@@ -58,7 +58,7 @@ const getThemeStyles = (theme: 'blue' | 'white', palette: Palette) => {
 
 const CreditCard = ({ theme = 'white', cardData }: CreditCardProps) => {
   const { palette } = useTheme();
-  const { cardBg, textColor, cardGradient, borderStyle } = getThemeStyles(theme, palette);
+  const { cardBg, textColor, cardGradient } = getThemeStyles(theme, palette);
 
   const { title, cardNumber, cardHolder } = cardData;
 
