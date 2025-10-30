@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 import DataTable from 'components/common/Datagrid';
 import { GridColDef } from '@mui/x-data-grid';
@@ -8,8 +9,11 @@ import { useBreakpoints } from 'providers/useBreakpoints';
 
 const WalletTransactions = () => {
   const location = useLocation();
+  const [selectedRows] = useState([]);
   const { up } = useBreakpoints();
   const upSM = up('sm');
+
+  console.log(selectedRows);
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
@@ -171,6 +175,15 @@ const WalletTransactions = () => {
     },
   ];
 
+  // const handleCheckboxChange = (row: any, isChecked: any) => {
+  //   console.log('rows clicked', row)
+  //   setSelectedRows((prevSelectedRows: any[]) =>
+  //     isChecked
+  //       ? [...prevSelectedRows, row]
+  //       : prevSelectedRows.filter((selectedRow) => selectedRow !== row)
+  //   )
+  // }
+
   return (
     <Fragment>
       <Typography
@@ -196,14 +209,19 @@ const WalletTransactions = () => {
           sx={{
             marginRight: '7px',
             padding: '0px -50px',
-            color: '#ffffff',
             borderRadius: '7px',
-            backgroundColor: '#1677FF',
-            '&: hover': {
-              backgroundColor: '#4096FF',
+            color: selectedRows.length === 1 ? '#666666' : 'green',
+            backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#1677FF',
+            '&:hover': {
+              backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#4096FF',
+            },
+            '&.Mui-disabled': {
+              backgroundColor: '#cccccc',
+              color: '#666666',
             },
           }}
           // onClick={handleModalOpen}
+          disabled={selectedRows.length !== 1}
         >
           Approve / Disapprove WHD
         </Button>
@@ -211,13 +229,18 @@ const WalletTransactions = () => {
           variant="contained"
           type="submit"
           size={upSM ? 'medium' : 'medium'}
+          disabled={selectedRows.length !== 0}
           sx={{
             padding: '0px -50px',
-            color: '#ffffff',
+            color: selectedRows.length === 0 ? '#666666' : '#ffffff',
             borderRadius: '7px',
-            backgroundColor: '#1677FF',
+            backgroundColor: selectedRows.length === 0 ? '#cccccc' : '#1677FF',
             '&: hover': {
-              backgroundColor: '#4096FF',
+              backgroundColor: selectedRows.length === 0 ? '#cccccc' : '#4096FF',
+            },
+            '&.Mui-disabled': {
+              backgroundColor: '#cccccc',
+              color: '#666666',
             },
           }}
           // onClick={handleModalOpen}
