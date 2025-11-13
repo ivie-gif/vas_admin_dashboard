@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 import DataTable from 'components/common/Datagrid';
 import { GridColDef } from '@mui/x-data-grid';
@@ -9,6 +10,7 @@ const SMSTransaction = () => {
   const location = useLocation();
   const { up } = useBreakpoints();
   const upSM = up('sm');
+  const [selectedRows] = useState([]);
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
@@ -19,14 +21,20 @@ const SMSTransaction = () => {
   const columns: GridColDef<(typeof rows)[number]>[] = [
     {
       field: 'reference',
-      headerName: 'Reference',
-      width: 160,
+      headerName: 'Id',
+      width: 200,
+      editable: true,
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Created At',
+      width: 200,
       editable: true,
     },
     {
       field: 'amount',
       headerName: 'Amount',
-      width: 160,
+      width: 100,
       editable: true,
     },
     {
@@ -39,36 +47,25 @@ const SMSTransaction = () => {
     {
       field: 'purpose',
       headerName: 'Purpose',
-      type: 'number',
       width: 160,
       editable: true,
     },
     {
       field: 'narration',
       headerName: 'Narration',
-      type: 'number',
       width: 160,
       editable: true,
     },
     {
       field: 'balanceAfter',
-      headerName: 'Balance After',
-      type: 'number',
-      width: 160,
+      headerName: 'Balance Aft.',
+      width: 100,
       editable: true,
     },
     {
       field: 'balanceBefore',
-      headerName: 'Balance Before',
-      type: 'number',
-      width: 160,
-      editable: true,
-    },
-    {
-      field: 'createdAt',
-      headerName: 'Created At',
-      type: 'number',
-      width: 160,
+      headerName: 'Balance Bef.',
+      width: 100,
       editable: true,
     },
   ];
@@ -181,9 +178,10 @@ const SMSTransaction = () => {
         sx={{
           display: { xs: 'block', md: 'block' },
           fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
-          color: '#000',
+          fontWeight: 'bold',
+          color: '#212529',
           pt: 5,
+          pb: 1,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
           textTransform: 'capitalize',
@@ -201,12 +199,18 @@ const SMSTransaction = () => {
             marginRight: '7px',
             padding: '0px -50px',
             borderRadius: '7px',
-            color: '#ffffff',
-            backgroundColor: '#1677FF',
-            '&: hover': {
-              backgroundColor: '#4096FF',
+            color: selectedRows.length === 1 ? '#666666' : 'green',
+            backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#1677FF',
+            '&:hover': {
+              backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#4096FF',
+            },
+            '&.Mui-disabled': {
+              backgroundColor: '#cccccc',
+              color: '#666666',
             },
           }}
+          // onClick={handleModalOpen}
+          disabled={selectedRows.length !== 1}
         >
           Approve / Disapprove Trans. sms
         </Button>
@@ -215,21 +219,28 @@ const SMSTransaction = () => {
           type="submit"
           size={upSM ? 'medium' : 'medium'}
           sx={{
+            marginRight: '7px',
             padding: '0px -50px',
-            color: '#ffffff',
             borderRadius: '7px',
-            backgroundColor: '#1677FF',
-            '&: hover': {
-              backgroundColor: '#4096FF',
+            color: selectedRows.length === 1 ? '#666666' : 'green',
+            backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#1677FF',
+            '&:hover': {
+              backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#4096FF',
+            },
+            '&.Mui-disabled': {
+              backgroundColor: '#cccccc',
+              color: '#666666',
             },
           }}
+          // onClick={handleModalOpen}
+          disabled={selectedRows.length !== 1}
         >
           Approve / Disapprove postpaid
         </Button>
       </Grid>
 
-      <Box sx={{ py: 2 }}>
-        <DataTable rows={rows} columns={columns} checkboxSelection={false} />
+      <Box sx={{ py: 2, mt: -1 }}>
+        <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
   );

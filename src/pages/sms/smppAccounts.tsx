@@ -283,7 +283,7 @@ const SMPPAccounts = () => {
         </CustomModal>
       </Formik>
 
-      <Box sx={{ py: 2, mt: -1}}>
+      <Box sx={{ py: 2, mt: -1 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>

@@ -176,6 +176,7 @@ const AllWallets = () => {
           fontWeight: 'bold',
           color: '#212529',
           pt: 5,
+          pb: 1,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
           textTransform: 'capitalize',
@@ -183,7 +184,7 @@ const AllWallets = () => {
       >
         {routeDisplayName}
       </Typography>
-      <Box sx={{ py: 2, mt: -1}}>
+      <Box sx={{ py: 2, mt: -1 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
