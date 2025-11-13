@@ -173,7 +173,7 @@ const SMSUSers = () => {
         sx={{
           display: { xs: 'block', md: 'block' },
           fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
+          fontWeight: 'bold',
           color: '#212529',
           pt: 5,
           flex: 1,
@@ -183,7 +183,7 @@ const SMSUSers = () => {
       >
         {routeDisplayName}
       </Typography>
-      <Box sx={{ py: 2 }}>
+      <Box sx={{ py: 2, mt: -1 }}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>

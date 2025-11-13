@@ -41,7 +41,7 @@ const FundDeposit = () => {
     {
       field: 'transactionReference',
       headerName: 'Id ',
-      width: 250,
+      width: 200,
       editable: true,
     },
     {

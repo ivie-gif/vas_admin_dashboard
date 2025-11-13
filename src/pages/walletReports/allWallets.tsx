@@ -183,7 +183,7 @@ const AllWallets = () => {
       >
         {routeDisplayName}
       </Typography>
-      <Box sx={{ py: 2 }}>
+      <Box sx={{ py: 2, mt: -1}}>
         <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
