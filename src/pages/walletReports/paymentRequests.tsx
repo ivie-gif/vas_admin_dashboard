@@ -1,18 +1,18 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
-// import DataTable from 'components/common/Datagrid';
-// import { GridColDef } from '@mui/x-data-grid';
+import DataTable from 'components/common/Datagrid';
+import { GridColDef } from '@mui/x-data-grid';
 import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import DataTable, { TableColumn } from 'react-data-table-component';
+// import DataTable, { TableColumn } from 'react-data-table-component';
 // import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
 const PaymentRequests = () => {
   const location = useLocation();
 
   // chnges to be made
-  const [loading] = useState(false);
-  const [items] = useState([]);
+  // const [loading] = useState(false);
+  // const [items] = useState([]);
   // const [totalRows, setTotalRows] = useState(0);
   // const [perPage, setPerPage] = useState(10);
   // const [filteredItem, setFilteredItem] = useState();
@@ -74,183 +74,169 @@ const PaymentRequests = () => {
   //   },
   // ];
 
-  const dataRowStyles = {
-    color: loading ? 'gray' : 'black', // Apply conditional color
-  };
+  // interface PaymentRequestRow {
+  //   transactionReference: string;
+  //   paymentReference: string;
+  //   paymentMethod: string;
+  //   status: string;
+  //   amount: number;
+  //   feesAdded: number;
+  //   totalAmountPaid: number;
+  //   createdAt: string;
+  // }
 
-  interface PaymentRequestRow {
-    transactionReference: string;
-    paymentReference: string;
-    paymentMethod: string;
-    status: string;
-    amount: number;
-    feesAdded: number;
-    totalAmountPaid: number;
-    createdAt: string;
-  }
-
-  const columns: TableColumn<PaymentRequestRow>[] = [
+  const columns: GridColDef<(typeof rows)[number]>[] = [
     {
-      name: 'Trans Ref',
-      selector: (row) => row.transactionReference,
-      // width: "150px",
-      cell: (row) => (
-        <div
-          style={{
-            wordBreak: 'break-word',
-            whiteSpace: 'normal',
-            textAlign: 'left',
-            padding: '3px',
-          }}
-        >
-          {row.transactionReference}
-          {/* transactionReference */}
-        </div>
-      ),
+      field: 'reference',
+      headerName: 'Id',
+      width: 200,
+      editable: true,
     },
     {
-      name: 'Pay Ref',
-      selector: (row) => row.paymentReference,
-      // width: "150px",
-      cell: (row) => (
-        <div
-          style={{
-            wordBreak: 'break-word',
-            whiteSpace: 'normal',
-            textAlign: 'left',
-            padding: '3px',
-          }}
-        >
-          {row.paymentReference}
-        </div>
-      ),
+      field: 'createdAt',
+      headerName: 'Created At',
+      width: 200,
+      editable: true,
     },
     {
-      name: 'Method',
-      selector: (row) => row.paymentMethod,
-      width: '100px',
-      sortable: true,
+      field: 'paymentReference',
+      headerName: 'Pay Ref',
+      width: 100,
+      editable: true,
     },
     {
-      name: 'Status',
-      selector: (row) => row.status,
-      // width: "150px",
-      sortable: true,
+      field: 'paymentMethod',
+      headerName: 'Payment Methd.',
+      width: 160,
+      editable: true,
     },
     {
-      name: 'Amount',
-      selector: (row) => row.amount,
-      width: '95px',
+      field: 'status',
+      headerName: 'Status',
+      width: 160,
+      editable: true,
     },
     {
-      name: 'Fees Added',
-      selector: (row) => row.feesAdded,
-      width: '90px',
+      field: 'amount',
+      headerName: 'Amount',
+      width: 100,
+      editable: true,
     },
     {
-      name: 'Total',
-      selector: (row) => row.totalAmountPaid,
-      width: '100px',
+      field: 'feesAdded',
+      headerName: 'Fees Added',
+      width: 120,
+      editable: true,
     },
     {
-      name: 'Created At',
-      selector: (row) => row.createdAt,
-      // width: "150px",
+      field: 'totalAmountPaid',
+      headerName: 'Amt. Paid',
+      width: 160,
+      editable: true,
     },
   ];
 
-  // const rows = [
-  //   {
-  //     id: 1,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 2,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 3,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 4,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 5,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 6,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 7,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 8,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  //   {
-  //     id: 9,
-  //     transactionReference: '98692767792398462966',
-  //     amount: 14,
-  //     paymentMethod: 'Jon',
-  //     totalAmountPaid: 'credit',
-  //     feesAdded: 31000,
-  //     status: 30000,
-  //     createdAt: '2024-11-15 15:48:35',
-  //   },
-  // ];
+  const rows = [
+    {
+      id: 1,
+      reference: '98692767792398462966',
+      paymentReference: 'Jon',
+      amount: 14,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35',
+    },
+    {
+      id: 2,
+      reference: '98692767792398462966',
+      paymentReference: 'Cersei',
+      amount: 31,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35 ',
+    },
+    {
+      id: 3,
+      reference: '98692767792398462966',
+      paymentReference: 'Jaime',
+      amount: 31,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35',
+    },
+    {
+      id: 4,
+      reference: '98692767792398462966',
+      paymentReference: 'Arya',
+      amount: 11,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35 ',
+    },
+    {
+      id: 5,
+      reference: '98692767792398462966',
+      paymentReference: 'Daenerys',
+      amount: null,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35 ',
+    },
+    {
+      id: 6,
+      reference: '98692767792398462966',
+      paymentReference: null,
+      amount: 150,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35',
+    },
+    {
+      id: 7,
+      reference: '98692767792398462966',
+      paymentReference: 'Ferrara',
+      amount: 44,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35',
+    },
+    {
+      id: 8,
+      reference: '98692767792398462966',
+      paymentReference: 'Rossini',
+      amount: 36,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35',
+    },
+    {
+      id: 9,
+      reference: '98692767792398462966',
+      paymentReference: 'Harvey',
+      amount: 65,
+      paymentMethod: 'credit',
+      status: 'credit',
+      feesAdded: 31000,
+      totalAmountPaid: 30000,
+      createdAt: '2024-11-15 15:48:35 ',
+    },
+  ];
 
   return (
     <Fragment>
@@ -258,8 +244,8 @@ const PaymentRequests = () => {
         sx={{
           display: { xs: 'block', md: 'block' },
           fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
-          color: '#D36128',
+          fontWeight: 'bold',
+          color: '#212529',
           pt: 5,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
@@ -268,26 +254,8 @@ const PaymentRequests = () => {
       >
         {routeDisplayName}
       </Typography>
-      <Box sx={{ py: 2 }}>
-        {/* <DataTable rows={rows} columns={columns} checkboxSelection={true} /> */}
-
-        <DataTable
-          columns={columns}
-          data={items}
-          fixedHeader
-          pagination
-          // highlightOnHover="true"
-          paginationRowsPerPageOptions={[10, 15, 20, 25, 30, 50, 100]}
-          // paginationServer
-          // paginationTotalRows={totalRows}
-          onChangePage={() => {}}
-          onChangeRowsPerPage={() => {}}
-          customStyles={{
-            rows: {
-              style: dataRowStyles,
-            },
-          }}
-        />
+      <Box sx={{ py: 2, mt: -1 }}>
+        <DataTable rows={rows} columns={columns} checkboxSelection={true} />
       </Box>
     </Fragment>
   );
