@@ -135,6 +135,7 @@ const SenderId = () => {
   const upSM = up('sm');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSenderIdModalOpen, setIsSenderIdModalOpen] = useState(false);
+  // const [selectedRows] = useState([]);
 
   // Extract the route name from the pathname
   const pathSegments = location.pathname.split('/').filter((segment) => segment.trim() !== '');
@@ -151,14 +152,20 @@ const SenderId = () => {
   const columns: GridColDef<(typeof rows)[number]>[] = [
     {
       field: 'reference',
-      headerName: 'Reference',
-      width: 220,
+      headerName: 'Id',
+      width: 200,
+      editable: true,
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Created At',
+      width: 200,
       editable: true,
     },
     {
       field: 'amount',
       headerName: 'Amount',
-      width: 160,
+      width: 100,
       editable: true,
     },
     {
@@ -171,36 +178,25 @@ const SenderId = () => {
     {
       field: 'purpose',
       headerName: 'Purpose',
-      type: 'number',
       width: 160,
       editable: true,
     },
     {
       field: 'narration',
       headerName: 'Narration',
-      type: 'number',
       width: 160,
       editable: true,
     },
     {
       field: 'balanceAfter',
-      headerName: 'Balance After',
-      type: 'number',
-      width: 160,
+      headerName: 'Balance Aft.',
+      width: 100,
       editable: true,
     },
     {
       field: 'balanceBefore',
-      headerName: 'Balance Before',
-      type: 'number',
-      width: 160,
-      editable: true,
-    },
-    {
-      field: 'createdAt',
-      headerName: 'Created At',
-      type: 'number',
-      width: 160,
+      headerName: 'Balance Bef.',
+      width: 100,
       editable: true,
     },
   ];
@@ -329,9 +325,10 @@ const SenderId = () => {
         sx={{
           display: { xs: 'block', md: 'block' },
           fontSize: { sm: 'h6.fontSize', xl: 'h6.fontSize' },
-          fontWeight: 600,
-          color: '#D36128',
+          fontWeight: 'bold',
+          color: '#212529',
           pt: 5,
+          pb: 1,
           flex: 1,
           textAlign: { xs: 'left', md: 'left' },
           textTransform: 'capitalize',
@@ -558,12 +555,13 @@ const SenderId = () => {
           size={upSM ? 'medium' : 'medium'}
           sx={{
             marginRight: '7px',
-            padding: '0px -50px',
+            borderRadius: '7px',
             color: '#ffffff',
             backgroundColor: '#1677FF',
             '&: hover': {
               backgroundColor: '#4096FF',
             },
+            fontSize: '14px',
           }}
         >
           Create New Sender ID
@@ -574,12 +572,13 @@ const SenderId = () => {
           size={upSM ? 'medium' : 'medium'}
           sx={{
             marginRight: '7px',
-            padding: '0px -50px',
+            borderRadius: '7px',
             color: '#ffffff',
             backgroundColor: '#1677FF',
             '&: hover': {
               backgroundColor: '#4096FF',
             },
+            fontSize: '14px',
           }}
           // onClick={handleModalOpen}
         >

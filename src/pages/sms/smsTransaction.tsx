@@ -197,8 +197,8 @@ const SMSTransaction = () => {
           size={upSM ? 'medium' : 'medium'}
           sx={{
             marginRight: '7px',
-            padding: '0px -50px',
             borderRadius: '7px',
+            fontSize: '14px',
             color: selectedRows.length === 1 ? '#666666' : 'green',
             backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#1677FF',
             '&:hover': {
@@ -220,8 +220,8 @@ const SMSTransaction = () => {
           size={upSM ? 'medium' : 'medium'}
           sx={{
             marginRight: '7px',
-            padding: '0px -50px',
             borderRadius: '7px',
+            fontSize: '14px',
             color: selectedRows.length === 1 ? '#666666' : 'green',
             backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#1677FF',
             '&:hover': {

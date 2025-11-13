@@ -208,8 +208,8 @@ const WalletTransactions = () => {
           size={upSM ? 'medium' : 'medium'}
           sx={{
             marginRight: '7px',
-            padding: '0px -50px',
             borderRadius: '7px',
+            fontSize: '14px',
             color: selectedRows.length === 1 ? '#666666' : 'green',
             backgroundColor: selectedRows.length !== 1 ? '#cccccc' : '#1677FF',
             '&:hover': {
@@ -231,9 +231,9 @@ const WalletTransactions = () => {
           size={upSM ? 'medium' : 'medium'}
           disabled={selectedRows.length !== 0}
           sx={{
-            padding: '0px -50px',
-            color: selectedRows.length === 0 ? '#666666' : '#ffffff',
             borderRadius: '7px',
+            fontSize: '14px',
+            color: selectedRows.length === 0 ? '#666666' : '#ffffff',
             backgroundColor: selectedRows.length === 0 ? '#cccccc' : '#1677FF',
             '&: hover': {
               backgroundColor: selectedRows.length === 0 ? '#cccccc' : '#4096FF',
